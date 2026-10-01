@@ -102,16 +102,13 @@ export function LandingBackground() {
 
         <div className="hero-copy">
           <p className="hero-eyebrow">GAME OPERATIONS PORTFOLIO</p>
-          <h1 className="hero-title">
-            <span className="hero-title-small">KEEP THE</span>
-            <span className="hero-title-large">RACE GOING.</span>
-          </h1>
-          <div className="hero-speed-detail" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-          </div>
-          <p className="hero-name">KANG SEUNG HYE</p>
+          <p className="hero-statement">
+            <span>게임을 즐기는 사람에서,</span>
+            <span>게임을 운영하는 사람으로.</span>
+            <span className="hero-introduction">
+              <strong>신입 강승혜</strong>입니다.
+            </span>
+          </p>
         </div>
 
         <div className="character-parallax-wrapper">
