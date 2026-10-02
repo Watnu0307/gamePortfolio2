@@ -1,10 +1,10 @@
 import {
-  AIPortfolioBackground,
   ContactBackground,
   LandingBackground,
   NexonBridgeSection,
   PortfolioBackground,
 } from "@/components/BackgroundSections";
+import { AIPortfolioSection } from "@/components/AIPortfolioSection";
 import { QnASection } from "@/components/QnASection";
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
       <NexonBridgeSection />
       <QnASection />
       <PortfolioBackground />
-      <AIPortfolioBackground />
+      <AIPortfolioSection />
       <ContactBackground />
     </main>
   );
