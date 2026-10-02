@@ -323,11 +323,16 @@ export function PortfolioBackground() {
                     </div>
                   </div>
                   <div className="shop-preview-copy">
-                    <div>
+                    <p className="shop-card-category">{item.category}</p>
+                    <div className="shop-card-title-row">
                       <h3>{item.title}</h3>
                       <ArrowUpRight aria-hidden="true" />
                     </div>
-                    <p>{item.meta}</p>
+                    <p className="shop-card-summary">{item.summary}</p>
+                    <div className="shop-card-footer">
+                      <span>{item.meta}</span>
+                      <strong>PPT 보기</strong>
+                    </div>
                   </div>
                 </button>
               ))}
@@ -350,58 +355,93 @@ export function PortfolioBackground() {
             }}
           >
             <section
-              className="portfolio-modal"
+              className="portfolio-slide-viewer"
               role="dialog"
               aria-modal="true"
               aria-labelledby="portfolio-modal-title"
             >
-              <button
-                type="button"
-                className="portfolio-modal-close"
-                onClick={() => setSelectedItem(null)}
-                aria-label="포트폴리오 상세 창 닫기"
-              >
-                <X aria-hidden="true" />
-              </button>
-
-              <div className={`portfolio-modal-visual portfolio-modal-visual-${selectedItem.tone}`}>
-                <span className="portfolio-modal-project">PROJECT {selectedItem.number}</span>
-                <div className="portfolio-modal-screen" aria-hidden="true">
-                  <div className="portfolio-modal-screen-bar" />
-                  <div className="portfolio-modal-screen-grid">
-                    <i />
-                    <i />
-                    <i />
-                    <i />
-                  </div>
+              <header className="portfolio-viewer-header">
+                <div>
+                  <span>PROJECT {selectedItem.number}</span>
+                  <h2 id="portfolio-modal-title">{selectedItem.title}</h2>
                 </div>
-                <p>PORTFOLIO PREVIEW</p>
-              </div>
+                <p>PPT PORTFOLIO · 아래로 스크롤해서 확인하세요</p>
+                <button
+                  type="button"
+                  className="portfolio-modal-close"
+                  onClick={() => setSelectedItem(null)}
+                  aria-label="포트폴리오 상세 창 닫기"
+                >
+                  <X aria-hidden="true" />
+                </button>
+              </header>
 
-              <div className="portfolio-modal-content">
-                <p className="portfolio-modal-category">{selectedItem.category}</p>
-                <h2 id="portfolio-modal-title">{selectedItem.title}</h2>
-                <p className="portfolio-modal-meta">{selectedItem.meta}</p>
-                <p className="portfolio-modal-summary">{selectedItem.summary}</p>
-
-                <dl className="portfolio-modal-facts">
-                  <div>
-                    <dt>KEY FOCUS</dt>
-                    <dd>{selectedItem.focus}</dd>
+              <div className="portfolio-slide-track">
+                <article className={`portfolio-slide portfolio-slide-cover portfolio-slide-${selectedItem.tone}`}>
+                  <div className="portfolio-slide-number">01</div>
+                  <div className="portfolio-slide-cover-copy">
+                    <p>{selectedItem.category}</p>
+                    <h3>{selectedItem.title}</h3>
+                    <span>{selectedItem.meta}</span>
                   </div>
-                  <div>
-                    <dt>MY ROLE</dt>
-                    <dd>{selectedItem.contribution}</dd>
-                  </div>
-                </dl>
+                  <div className="portfolio-slide-cover-mark" aria-hidden="true">P</div>
+                  <footer>KANG SEUNG HYE · GAME OPERATIONS PORTFOLIO</footer>
+                </article>
 
-                <div className="portfolio-modal-output">
-                  <span>OUTPUT</span>
-                  <ul>
-                    {selectedItem.deliverables.map((deliverable) => (
-                      <li key={deliverable}>{deliverable}</li>
+                <article className="portfolio-slide portfolio-slide-overview">
+                  <div className="portfolio-slide-heading">
+                    <span>02 · PROJECT OVERVIEW</span>
+                    <h3>프로젝트 개요</h3>
+                  </div>
+                  <div className="portfolio-slide-overview-grid">
+                    <p>{selectedItem.summary}</p>
+                    <div>
+                      <span>KEY FOCUS</span>
+                      <strong>{selectedItem.focus}</strong>
+                    </div>
+                    <div>
+                      <span>PROJECT TYPE</span>
+                      <strong>{selectedItem.category}</strong>
+                    </div>
+                  </div>
+                  <footer>PROJECT {selectedItem.number}</footer>
+                </article>
+
+                <article className="portfolio-slide portfolio-slide-process">
+                  <div className="portfolio-slide-heading">
+                    <span>03 · PROCESS &amp; ROLE</span>
+                    <h3>진행 과정과 담당 역할</h3>
+                  </div>
+                  <p className="portfolio-slide-role">{selectedItem.contribution}</p>
+                  <div className="portfolio-slide-process-flow" aria-label="프로젝트 진행 단계">
+                    <div><span>01</span><strong>문제 발견</strong></div>
+                    <i aria-hidden="true" />
+                    <div><span>02</span><strong>원인 분석</strong></div>
+                    <i aria-hidden="true" />
+                    <div><span>03</span><strong>운영 제안</strong></div>
+                  </div>
+                  <footer>PROJECT {selectedItem.number}</footer>
+                </article>
+
+                <article className="portfolio-slide portfolio-slide-output">
+                  <div className="portfolio-slide-heading">
+                    <span>04 · OUTPUT</span>
+                    <h3>주요 산출물</h3>
+                  </div>
+                  <div className="portfolio-slide-output-list">
+                    {selectedItem.deliverables.map((deliverable, index) => (
+                      <div key={deliverable}>
+                        <span>{String(index + 1).padStart(2, "0")}</span>
+                        <strong>{deliverable}</strong>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
+                  <p className="portfolio-slide-closing">THANK YOU FOR VIEWING</p>
+                  <footer>KANG SEUNG HYE · GAME OPERATIONS PORTFOLIO</footer>
+                </article>
+
+                <div className="portfolio-slide-end" aria-hidden="true">
+                  <span>END OF PORTFOLIO</span>
                 </div>
               </div>
             </section>
