@@ -50,6 +50,7 @@ body {
 
 .background-section {
   --progress: 0;
+  --section-reveal: 0;
   position: relative;
   min-height: 118vh;
   overflow: clip;
@@ -253,11 +254,33 @@ body {
   --bridge-enter: clamp(.82,calc(.82 + var(--progress) * 1.5),1);
   --bridge-exit: clamp(0,calc((var(--progress) - .78) * 4.5),1);
   position: relative;
-  min-height: clamp(520px,66vh,720px);
+  min-height: clamp(680px,88vh,940px);
   margin-top: -2px;
   overflow: hidden;
   background: #fff;
   isolation: isolate;
+}
+
+.checkpoint-bridge::before,
+.checkpoint-bridge::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  left: -8%;
+  right: -8%;
+  height: 9rem;
+  pointer-events: none;
+  filter: blur(22px);
+}
+
+.checkpoint-bridge::before {
+  top: -5rem;
+  background: rgba(255,255,255,.94);
+}
+
+.checkpoint-bridge::after {
+  bottom: -5rem;
+  background: linear-gradient(180deg,rgba(255,255,255,.2),rgba(246,250,255,.96));
 }
 
 .checkpoint-course {
@@ -524,7 +547,7 @@ body {
 
 .qna-section {
   min-height: auto;
-  padding: clamp(7.5rem,10vw,11rem) 5vw clamp(9rem,11vw,12rem);
+  padding: clamp(11rem,14vw,16rem) 5vw clamp(14rem,17vw,20rem);
   background:
     radial-gradient(circle at 92% 9%,rgba(18,120,232,.085),transparent 25rem),
     linear-gradient(180deg,#fff 0%,#fafcff 66%,#fff 100%);
@@ -561,9 +584,9 @@ body {
   z-index: 2;
   width: min(100%,1180px);
   margin: 0 auto;
-  opacity: calc(1 - var(--qna-exit-progress) * .94);
-  transform: translateY(calc(var(--qna-exit-progress) * -36px));
-  filter: blur(calc(var(--qna-exit-progress) * 4px));
+  opacity: clamp(0,calc(var(--section-reveal) - var(--qna-exit-progress) * .94),1);
+  transform: translateY(calc((1 - var(--section-reveal)) * 42px + var(--qna-exit-progress) * -36px));
+  filter: blur(calc((1 - var(--section-reveal)) * 10px + var(--qna-exit-progress) * 4px));
   will-change: opacity,transform,filter;
 }
 
@@ -835,9 +858,22 @@ body {
   --shop-character-progress: clamp(0,calc((var(--shop-transition-progress) - .48) * 2.08),1);
   --shop-toolbar-progress: clamp(0,calc((var(--shop-transition-progress) - .53) * 2.13),1);
   --shop-grid-progress: clamp(0,calc((var(--shop-transition-progress) - .6) * 2.5),1);
-  min-height: 165vh;
+  min-height: 195vh;
   margin-top: 0;
   background: #fff;
+}
+
+.portfolio-background::before {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  left: -8%;
+  right: -8%;
+  top: -4.5rem;
+  height: 10rem;
+  background: rgba(255,255,255,.88);
+  filter: blur(24px);
+  pointer-events: none;
 }
 
 .portfolio-sticky {
@@ -933,7 +969,7 @@ body {
   width: min(92vw,1760px);
   height: 100%;
   margin: 0 auto;
-  padding: clamp(5rem,7vh,7.5rem) 0 clamp(3rem,5vh,5rem);
+  padding: clamp(7rem,10vh,10rem) 0 clamp(6rem,9vh,9rem);
 }
 
 .shop-character-entry {
@@ -1706,14 +1742,29 @@ body {
 
 /* AI portfolio shop rail */
 .ai-portfolio-section {
+  --section-reveal: 0;
   position: relative;
-  min-height: 100vh;
+  min-height: 128vh;
   overflow: hidden;
-  margin-top: -9rem;
-  padding: clamp(14rem,17vw,18rem) 0 clamp(7rem,10vw,10rem);
+  margin-top: -7rem;
+  padding: clamp(17rem,20vw,22rem) 0 clamp(12rem,15vw,17rem);
   color: #fff;
   background: linear-gradient(180deg,rgba(238,244,251,0) 0,#eef4fb 5%,#dceaff 15%,#9dceff 25%,#3b93ef 36%,#1278e8 45%,#0965cf 100%);
   isolation: isolate;
+}
+
+.ai-portfolio-section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -10%;
+  right: -10%;
+  top: -4rem;
+  height: 18rem;
+  background: radial-gradient(ellipse at 50% 22%,rgba(255,255,255,.9),rgba(213,233,255,.56) 48%,transparent 76%);
+  filter: blur(28px);
+  opacity: calc(.48 + var(--section-reveal) * .52);
+  pointer-events: none;
 }
 
 .ai-portfolio-section::before {
@@ -1731,7 +1782,15 @@ body {
 .ai-shop-orb-a { top: 12%; right: -12rem; width: 34rem; height: 34rem; background: rgba(102,187,255,.22); }
 .ai-shop-orb-b { bottom: -14rem; left: -10rem; width: 30rem; height: 30rem; background: rgba(255,196,18,.14); }
 
-.ai-portfolio-shell { width: min(100%,1500px); margin: 0 auto; }
+.ai-portfolio-shell {
+  width: min(100%,1500px);
+  margin: 0 auto;
+  opacity: var(--section-reveal);
+  filter: blur(calc((1 - var(--section-reveal)) * 12px));
+  transform: translateY(calc((1 - var(--section-reveal)) * 52px));
+  transition: opacity .16s linear,filter .16s linear,transform .16s linear;
+  will-change: opacity,filter,transform;
+}
 
 .ai-portfolio-header {
   display: flex;
@@ -1840,13 +1899,13 @@ body {
 
 .contact-background {
   z-index: 2;
-  min-height: 126vh;
-  margin-top: -14vh;
+  min-height: 150vh;
+  margin-top: -6vh;
   background: #78cffe;
-  border-radius: 48% 52% 0 0 / 8vh 8vh 0 0;
-  box-shadow: 0 -5rem 8rem rgba(255,255,255,.42);
-  -webkit-mask-image: linear-gradient(to bottom,transparent 0,#000 10vh,#000 100%);
-  mask-image: linear-gradient(to bottom,transparent 0,#000 10vh,#000 100%);
+  border-radius: 48% 52% 0 0 / 12vh 12vh 0 0;
+  box-shadow: 0 -8rem 12rem rgba(255,255,255,.52);
+  -webkit-mask-image: linear-gradient(to bottom,transparent 0,#000 17vh,#000 100%);
+  mask-image: linear-gradient(to bottom,transparent 0,#000 17vh,#000 100%);
 }
 
 .contact-image {
@@ -1882,14 +1941,14 @@ body {
     width: min(130vw,850px);
   }
   .scroll-indicator { bottom: 2.6vh; }
-  .checkpoint-bridge { min-height: clamp(500px,64vh,640px); }
+  .checkpoint-bridge { min-height: clamp(620px,82vh,820px); }
   .checkpoint-gantry { width: 92vw; }
   .checkpoint-sign { margin-inline: 1rem; }
   .checkpoint-post-left { left: 1rem; }
   .checkpoint-post-right { right: 1rem; }
   .qna-section {
     min-height: auto;
-    padding: 7rem 5vw 9rem;
+    padding: 9rem 5vw 12rem;
   }
   .qna-header {
     grid-template-columns: minmax(0,1fr) 150px;
@@ -1910,7 +1969,7 @@ body {
     grid-template-columns: 1fr;
     gap: 3.5rem;
     height: auto;
-    padding: 7rem 5vw 8rem;
+    padding: 9rem 5vw 11rem;
   }
   .shop-character-entry {
     width: min(100%,430px);
@@ -1934,7 +1993,7 @@ body {
 }
 
 @media (max-width: 640px) {
-  .ai-portfolio-section { margin-top: -5rem; padding-top: 10.5rem; }
+  .ai-portfolio-section { min-height: 118vh; margin-top: -3rem; padding: 13.5rem 0 10rem; }
   .ai-portfolio-header { display: block; }
   .ai-portfolio-header h2 { max-width: 18rem; font-size: clamp(2.15rem,10vw,2.7rem); }
   .ai-portfolio-header > div > span { max-width: 19rem; font-size: .9rem; }
@@ -1952,7 +2011,7 @@ body {
   .ai-modal-detail-grid { grid-template-columns: 1fr; padding: 1rem; }
   .ai-modal-detail-grid .ai-modal-result { grid-column: auto; }
   .ai-project-modal > footer { align-items: flex-start; flex-direction: column; padding: 0 1rem 1.2rem; }
-  .checkpoint-bridge { min-height: 68vh; }
+  .checkpoint-bridge { min-height: 82vh; }
   .checkpoint-course { inset: 0; }
   .checkpoint-route-lines { width: 86vw; }
   .checkpoint-gantry { top: 48%; width: 96vw; padding-inline: .55rem; }
@@ -1969,7 +2028,7 @@ body {
   .checkpoint-post { top: 1.75rem; bottom: -3rem; width: 8px; }
   .checkpoint-post-left { left: .55rem; }
   .checkpoint-post-right { right: .55rem; }
-  .qna-section { padding: 5.5rem 1rem 7rem; }
+  .qna-section { padding: 7.5rem 1rem 10rem; }
   .qna-header {
     position: relative;
     display: block;
@@ -2011,7 +2070,7 @@ body {
   }
   .qna-answer-badge { width: 1.85rem; height: 1.85rem; }
   .qna-answer p { font-size: .98rem; line-height: 1.72; }
-  .portfolio-shop-stage { padding: 5rem 1rem 6rem; }
+  .portfolio-shop-stage { padding: 7rem 1rem 9rem; }
   .shop-character-entry { width: min(100%,340px); }
   .shop-character-panel { height: 330px; border-radius: 26px; }
   .shop-character-panel img { width: min(74%,290px); }

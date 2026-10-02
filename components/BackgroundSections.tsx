@@ -83,7 +83,12 @@ function useScrollProgress() {
         const rect = scene.getBoundingClientRect();
         const distance = Math.max(scene.offsetHeight - height, height * 0.55);
         const progress = Math.min(1, Math.max(0, -rect.top / distance));
+        const reveal = Math.min(
+          1,
+          Math.max(0, (height * 0.92 - rect.top) / (height * 0.58)),
+        );
         scene.style.setProperty("--progress", progress.toFixed(4));
+        scene.style.setProperty("--section-reveal", reveal.toFixed(4));
       });
 
       const world = document.querySelector<HTMLElement>(".racing-world");

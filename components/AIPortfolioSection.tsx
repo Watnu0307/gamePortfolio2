@@ -197,7 +197,11 @@ export function AIPortfolioSection() {
   };
 
   return (
-    <section className="ai-portfolio-section" aria-labelledby="ai-portfolio-title">
+    <section
+      className="ai-portfolio-section"
+      data-scroll-scene
+      aria-labelledby="ai-portfolio-title"
+    >
       <div className="ai-shop-orb ai-shop-orb-a" aria-hidden="true" />
       <div className="ai-shop-orb ai-shop-orb-b" aria-hidden="true" />
       <div className="ai-portfolio-shell">
