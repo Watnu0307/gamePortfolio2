@@ -13,6 +13,20 @@ function useScrollProgress() {
         const progress = Math.min(1, Math.max(0, -rect.top / distance));
         scene.style.setProperty("--progress", progress.toFixed(4));
       });
+
+      const world = document.querySelector<HTMLElement>(".racing-world");
+      const portfolio = document.querySelector<HTMLElement>(".portfolio-background");
+      if (world && portfolio) {
+        const portfolioTop = portfolio.getBoundingClientRect().top;
+        const transitionProgress = Math.min(
+          1,
+          Math.max(0, (height * 0.94 - portfolioTop) / (height * 1.16)),
+        );
+        world.style.setProperty(
+          "--shop-transition-progress",
+          transitionProgress.toFixed(4),
+        );
+      }
       frame = 0;
     };
     const onScroll = () => {
@@ -155,12 +169,76 @@ export function QnABackground() {
 }
 
 export function PortfolioBackground() {
+  const shopItems = [
+    { number: "01", title: "게임 운영 개선 제안서", meta: "운영 분석 · 2026.03", tone: "green" },
+    { number: "02", title: "라이브 이벤트 운영 기획", meta: "이벤트 운영 · 2026.04", tone: "blue" },
+    { number: "03", title: "신규 유저 이탈 분석", meta: "데이터 분석 · 2026.05", tone: "yellow" },
+    { number: "04", title: "게임 커뮤니티 VOC 분석", meta: "CS / COMMUNITY · 2026.06", tone: "mint" },
+    { number: "05", title: "신규 업데이트 운영 플랜", meta: "LIVE OPERATIONS · 2026.07", tone: "sky" },
+  ];
+
   return (
     <section className="background-section portfolio-background" data-scroll-scene>
-      <div className="garage-wall" aria-hidden="true" />
-      <div className="garage-bays" aria-hidden="true" />
-      <div className="garage-floor" aria-hidden="true" />
-      <div className="pit-line" aria-hidden="true" />
+      <div className="portfolio-sticky">
+        <div className="garage-wall" aria-hidden="true" />
+        <div className="garage-bays" aria-hidden="true" />
+        <div className="garage-floor" aria-hidden="true" />
+        <div className="pit-line" aria-hidden="true" />
+        <div className="shop-ambient-glow" aria-hidden="true" />
+
+        <div className="portfolio-shop-stage">
+          <figure className="shop-character-entry">
+            <div className="shop-character-panel">
+              <span className="shop-character-code">PLAYER 01</span>
+              <img src="/images/qna-character.png" alt="포트폴리오 상점의 지원자 캐릭터" />
+              <div className="shop-character-pedestal" aria-hidden="true" />
+            </div>
+            <figcaption>
+              <strong>KANG SEUNG HYE</strong>
+              <span>PORTFOLIO SHOP</span>
+            </figcaption>
+          </figure>
+
+          <div className="shop-ui-entry">
+            <header className="shop-toolbar-entry">
+              <div>
+                <p>SELECT YOUR PROJECT</p>
+                <h2>PORTFOLIO SHOP</h2>
+              </div>
+              <nav className="shop-tabs-entry" aria-label="포트폴리오 카테고리">
+                <span aria-current="page">ALL</span>
+                <span>GAME</span>
+                <span>OPERATIONS</span>
+                <span>PLANNING</span>
+                <span>ANALYSIS</span>
+              </nav>
+            </header>
+
+            <div className="shop-grid-entry">
+              {shopItems.map((item) => (
+                <article className="shop-preview-card" key={item.number}>
+                  <div className={`shop-preview-thumb shop-preview-thumb-${item.tone}`}>
+                    <span>PROJECT {item.number}</span>
+                    <div className="shop-thumb-interface" aria-hidden="true">
+                      <i />
+                      <i />
+                      <i />
+                    </div>
+                  </div>
+                  <div className="shop-preview-copy">
+                    <h3>{item.title}</h3>
+                    <p>{item.meta}</p>
+                  </div>
+                </article>
+              ))}
+              <div className="shop-empty-slot" aria-label="다음 프로젝트를 위한 빈 슬롯">
+                <span>+</span>
+                <small>NEXT SLOT</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

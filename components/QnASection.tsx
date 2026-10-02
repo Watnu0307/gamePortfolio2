@@ -100,6 +100,14 @@ export function QnASection() {
     >
       <div className="qna-track-mark" aria-hidden="true" />
       <div className="qna-checkers" aria-hidden="true" />
+      <div className="qna-shop-transition" aria-hidden="true">
+        <div className="transition-glass-panel transition-glass-panel-left" />
+        <div className="transition-glass-panel transition-glass-panel-right" />
+        <div className="transition-garage-frame" />
+        <div className="transition-floor-grid" />
+        <div className="transition-pit-line" />
+        <span className="transition-zone-label">NEXT ZONE · PORTFOLIO SHOP</span>
+      </div>
       <div className="qna-shell">
         <QnAHeader />
 
