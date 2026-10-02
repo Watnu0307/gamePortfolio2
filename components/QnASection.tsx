@@ -55,13 +55,13 @@ export function QnAHeader() {
         </p>
       </div>
 
-      <figure className="qna-character-frame">
-        <div className="qna-character-ring" aria-hidden="true" />
+      <figure className="qna-item-frame">
+        <div className="qna-item-orbit qna-item-orbit-outer" aria-hidden="true" />
+        <div className="qna-item-orbit qna-item-orbit-inner" aria-hidden="true" />
         <img
-          src="/images/qna-character.png"
-          alt="질문을 생각하는 지원자 캐릭터"
+          src="/images/water-item.png"
+          alt="파란색 물방울 게임 아이템"
         />
-        <figcaption>PLAYER PROFILE</figcaption>
       </figure>
     </header>
   );
@@ -100,13 +100,6 @@ export function QnASection() {
     >
       <div className="qna-track-mark" aria-hidden="true" />
       <div className="qna-checkers" aria-hidden="true" />
-      <div className="qna-shop-transition" aria-hidden="true">
-        <div className="transition-glass-panel transition-glass-panel-left" />
-        <div className="transition-glass-panel transition-glass-panel-right" />
-        <div className="transition-garage-frame" />
-        <div className="transition-floor-grid" />
-        <div className="transition-pit-line" />
-      </div>
       <div className="qna-shell">
         <QnAHeader />
 
