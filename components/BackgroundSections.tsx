@@ -82,7 +82,9 @@ function useScrollProgress() {
       document.querySelectorAll<HTMLElement>("[data-scroll-scene]").forEach((scene) => {
         const rect = scene.getBoundingClientRect();
         const distance = Math.max(scene.offsetHeight - height, height * 0.55);
-        const progress = Math.min(1, Math.max(0, -rect.top / distance));
+        const progress = scene.classList.contains("section-transition")
+          ? Math.min(1, Math.max(0, (height - rect.top) / (height + rect.height)))
+          : Math.min(1, Math.max(0, -rect.top / distance));
         const reveal = Math.min(
           1,
           Math.max(0, (height * 0.92 - rect.top) / (height * 0.58)),
