@@ -724,16 +724,6 @@ body {
   box-shadow: 0 0 26px rgba(0,158,96,.16);
 }
 
-.transition-zone-label {
-  position: absolute;
-  right: 9%;
-  bottom: 19%;
-  color: rgba(0,113,69,.48);
-  font-size: .72rem;
-  font-weight: 900;
-  letter-spacing: .16em;
-}
-
 .portfolio-background {
   --shop-bg-progress: clamp(0,calc(var(--shop-transition-progress) * 1.32),1);
   --shop-character-progress: clamp(0,calc((var(--shop-transition-progress) - .48) * 2.08),1);
@@ -1209,7 +1199,6 @@ body {
   .qna-ticket-number { display: none; }
   .qna-shop-transition { height: 20rem; }
   .transition-glass-panel { width: 42%; }
-  .transition-zone-label { right: 6%; }
   .portfolio-background {
     min-height: auto;
     background: #eef3f1;
@@ -1289,14 +1278,6 @@ body {
   .transition-glass-panel { display: none; }
   .transition-garage-frame { left: 5%; right: 5%; }
   .transition-floor-grid { background-size: 4rem 3rem; }
-  .transition-zone-label {
-    left: 50%;
-    right: auto;
-    bottom: 20%;
-    font-size: .58rem;
-    transform: translateX(-50%);
-    white-space: nowrap;
-  }
   .portfolio-shop-stage { padding: 5rem 1rem 6rem; }
   .shop-character-entry { width: min(100%,340px); }
   .shop-character-panel { height: 350px; border-radius: 26px; }

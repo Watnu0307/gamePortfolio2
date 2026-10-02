@@ -106,7 +106,6 @@ export function QnASection() {
         <div className="transition-garage-frame" />
         <div className="transition-floor-grid" />
         <div className="transition-pit-line" />
-        <span className="transition-zone-label">NEXT ZONE · PORTFOLIO SHOP</span>
       </div>
       <div className="qna-shell">
         <QnAHeader />
