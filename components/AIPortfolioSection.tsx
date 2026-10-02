@@ -5,6 +5,8 @@ import { createPortal } from "react-dom";
 import {
   ArrowUpRight,
   Bot,
+  ChevronLeft,
+  ChevronRight,
   Code2,
   FileText,
   Image as ImageIcon,
@@ -130,6 +132,7 @@ export function AIPortfolioSection() {
   const [category, setCategory] = useState<(typeof categories)[number]>("ALL");
   const [selected, setSelected] = useState<AIProject | null>(null);
   const [progress, setProgress] = useState({ left: 0, width: 34 });
+  const [railEdges, setRailEdges] = useState({ start: true, end: false });
 
   const projects = category === "ALL" ? aiPortfolioData : aiPortfolioData.filter((item) => item.category === category);
 
@@ -140,24 +143,16 @@ export function AIPortfolioSection() {
     const width = Math.min(100, Math.max(18, (rail.clientWidth / rail.scrollWidth) * 100));
     const left = max ? (rail.scrollLeft / max) * (100 - width) : 0;
     setProgress({ left, width });
+    setRailEdges({ start: rail.scrollLeft <= 2, end: max <= 2 || rail.scrollLeft >= max - 2 });
   };
 
   useEffect(() => {
     const rail = railRef.current;
     if (!rail) return;
-    const onWheel = (event: WheelEvent) => {
-      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
-      const max = rail.scrollWidth - rail.clientWidth;
-      const canMove = (event.deltaY > 0 && rail.scrollLeft < max - 1) || (event.deltaY < 0 && rail.scrollLeft > 1);
-      if (!canMove) return;
-      event.preventDefault();
-      rail.scrollLeft += event.deltaY;
-    };
-    rail.addEventListener("wheel", onWheel, { passive: false });
+    rail.scrollLeft = 0;
     window.addEventListener("resize", updateProgress);
-    updateProgress();
+    requestAnimationFrame(updateProgress);
     return () => {
-      rail.removeEventListener("wheel", onWheel);
       window.removeEventListener("resize", updateProgress);
       cancelAnimationFrame(momentumRef.current);
     };
@@ -188,6 +183,17 @@ export function AIPortfolioSection() {
       if (Math.abs(velocity) > 0.08) momentumRef.current = requestAnimationFrame(glide);
     };
     momentumRef.current = requestAnimationFrame(glide);
+  };
+
+  const moveRail = (direction: -1 | 1) => {
+    const rail = railRef.current;
+    if (!rail) return;
+    const card = rail.querySelector<HTMLElement>(".ai-project-card");
+    const gap = Number.parseFloat(getComputedStyle(rail).columnGap || getComputedStyle(rail).gap) || 24;
+    const distance = card ? card.offsetWidth + gap : rail.clientWidth * 0.82;
+    const max = Math.max(0, rail.scrollWidth - rail.clientWidth);
+    const target = Math.max(0, Math.min(max, rail.scrollLeft + distance * direction));
+    rail.scrollTo({ left: target, behavior: "smooth" });
   };
 
   return (
@@ -267,9 +273,13 @@ export function AIPortfolioSection() {
         </div>
 
         <div className="ai-rail-footer">
-          <span>WHEEL · DRAG · SWIPE</span>
+          <span>DRAG · SWIPE</span>
           <div className="ai-scroll-progress" aria-hidden="true"><i style={{ left: `${progress.left}%`, width: `${progress.width}%` }} /></div>
-          <span>{String(projects.length).padStart(2, "0")} ITEMS</span>
+          <div className="ai-rail-actions">
+            <span>{String(projects.length).padStart(2, "0")} ITEMS</span>
+            <button type="button" disabled={railEdges.start} onClick={() => moveRail(-1)} aria-label="이전 AI 작업물 보기"><ChevronLeft /></button>
+            <button type="button" disabled={railEdges.end} onClick={() => moveRail(1)} aria-label="다음 AI 작업물 보기"><ChevronRight /></button>
+          </div>
         </div>
       </div>
 

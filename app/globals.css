@@ -1755,6 +1755,7 @@ body {
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
+  scroll-padding-inline: clamp(1.25rem,5vw,5rem);
   scrollbar-width: none;
   cursor: grab;
   -webkit-overflow-scrolling: touch;
@@ -1792,6 +1793,12 @@ body {
 .ai-rail-footer { display: grid; grid-template-columns: auto minmax(140px,1fr) auto; align-items: center; gap: 1.2rem; padding: 0 clamp(1.25rem,5vw,5rem); color: rgba(255,255,255,.72); font-size: .62rem; font-weight: 900; letter-spacing: .12em; }
 .ai-scroll-progress { position: relative; height: 4px; overflow: hidden; border-radius: 99px; background: rgba(255,255,255,.2); }
 .ai-scroll-progress i { position: absolute; top: 0; bottom: 0; border-radius: inherit; background: #8ed0ff; box-shadow: 0 0 16px rgba(142,208,255,.65); transition: left .08s linear,width .25s ease; }
+.ai-rail-actions { display: flex; align-items: center; gap: .55rem; }
+.ai-rail-actions > span { margin-right: .25rem; white-space: nowrap; }
+.ai-rail-actions button { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid rgba(255,255,255,.38); border-radius: 13px; color: #0a54a8; background: #fff; box-shadow: 0 9px 22px rgba(0,38,87,.2); cursor: pointer; transition: transform .2s ease,opacity .2s ease,background .2s ease; }
+.ai-rail-actions button:hover:not(:disabled) { color: #fff; background: #66bbff; transform: translateY(-2px); }
+.ai-rail-actions button:disabled { opacity: .3; cursor: default; box-shadow: none; }
+.ai-rail-actions svg { width: 1.15rem; height: 1.15rem; stroke-width: 2.6; }
 
 .ai-modal-backdrop { position: fixed; z-index: 1000; inset: 0; display: grid; place-items: center; padding: 1rem; background: rgba(3,20,45,.72); backdrop-filter: blur(12px); }
 .ai-project-modal { width: min(900px,calc(100vw - 2rem)); max-height: calc(100vh - 2rem); overflow-y: auto; border: 1px solid rgba(255,255,255,.62); border-radius: 30px; color: #172b46; background: #f8fbff; box-shadow: 0 35px 90px rgba(0,20,54,.38); }
@@ -1933,6 +1940,8 @@ body {
   .ai-card-copy { min-height: 255px; }
   .ai-rail-footer { grid-template-columns: 1fr auto; }
   .ai-rail-footer > span:first-child { display: none; }
+  .ai-rail-actions > span { display: none; }
+  .ai-rail-actions button { width: 40px; height: 40px; }
   .ai-modal-detail-grid { grid-template-columns: 1fr; padding: 1rem; }
   .ai-modal-detail-grid .ai-modal-result { grid-column: auto; }
   .ai-project-modal > footer { align-items: flex-start; flex-direction: column; padding: 0 1rem 1.2rem; }
