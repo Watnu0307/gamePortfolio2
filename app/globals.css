@@ -1746,8 +1746,8 @@ body {
   position: relative;
   min-height: 128vh;
   overflow: hidden;
-  margin-top: -7rem;
-  padding: clamp(17rem,20vw,22rem) 0 clamp(12rem,15vw,17rem);
+  margin-top: clamp(8rem,11vw,13rem);
+  padding: clamp(12rem,15vw,17rem) 0 clamp(12rem,15vw,17rem);
   color: #fff;
   background: linear-gradient(180deg,rgba(238,244,251,0) 0,#eef4fb 5%,#dceaff 15%,#9dceff 25%,#3b93ef 36%,#1278e8 45%,#0965cf 100%);
   isolation: isolate;
@@ -1759,10 +1759,10 @@ body {
   z-index: -1;
   left: -10%;
   right: -10%;
-  top: -4rem;
-  height: 18rem;
+  top: 0;
+  height: 14rem;
   background: radial-gradient(ellipse at 50% 22%,rgba(255,255,255,.9),rgba(213,233,255,.56) 48%,transparent 76%);
-  filter: blur(28px);
+  filter: blur(22px);
   opacity: calc(.48 + var(--section-reveal) * .52);
   pointer-events: none;
 }
@@ -1993,7 +1993,7 @@ body {
 }
 
 @media (max-width: 640px) {
-  .ai-portfolio-section { min-height: 118vh; margin-top: -3rem; padding: 13.5rem 0 10rem; }
+  .ai-portfolio-section { min-height: 118vh; margin-top: 5rem; padding: 10.5rem 0 10rem; }
   .ai-portfolio-header { display: block; }
   .ai-portfolio-header h2 { max-width: 18rem; font-size: clamp(2.15rem,10vw,2.7rem); }
   .ai-portfolio-header > div > span { max-width: 19rem; font-size: .9rem; }
