@@ -218,6 +218,50 @@ export function LandingBackground() {
   );
 }
 
+export function NexonBridgeSection() {
+  return (
+    <section
+      className="checkpoint-bridge"
+      data-scroll-scene
+      aria-labelledby="why-nexon-title"
+    >
+      <div className="checkpoint-course" aria-hidden="true" />
+      <div className="checkpoint-light-wash" aria-hidden="true" />
+      <div className="checkpoint-route-lines" aria-hidden="true">
+        <i />
+        <i />
+      </div>
+
+      <div className="checkpoint-gantry">
+        <div className="checkpoint-beam" aria-hidden="true">
+          <span>CHECK POINT</span>
+          <span>02</span>
+        </div>
+        <article className="checkpoint-sign">
+          <p className="checkpoint-label">NEXT COURSE · NEXON</p>
+          <h2 id="why-nexon-title">WHY NEXON?</h2>
+          <div className="checkpoint-copy">
+            <p>
+              다양한 게임을 즐겨온 플레이어로서,{
+              " "}
+              게임의 재미를 오래 이어주는 운영의 역할에 관심을 갖게 되었습니다.{
+              " "}
+              다양한 장르와 서비스를 이어온 넥슨에서{
+              " "}
+              플레이어와 가장 가까운 운영자로 성장하고 싶습니다.
+            </p>
+          </div>
+          <div className="checkpoint-progress" aria-hidden="true">
+            <span />
+          </div>
+        </article>
+        <div className="checkpoint-post checkpoint-post-left" aria-hidden="true" />
+        <div className="checkpoint-post checkpoint-post-right" aria-hidden="true" />
+      </div>
+    </section>
+  );
+}
+
 export function AboutBackground() {
   return (
     <section className="background-section about-background" data-scroll-scene>
