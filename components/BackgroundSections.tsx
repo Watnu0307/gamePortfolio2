@@ -286,6 +286,41 @@ export function QnABackground() {
 
 export function PortfolioBackground() {
   const [selectedItem, setSelectedItem] = useState<ShopItem | null>(null);
+  const portfolioRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const section = portfolioRef.current;
+    if (!section || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let frame = 0;
+    let currentX = 0;
+    let currentY = 0;
+    let targetX = 0;
+    let targetY = 0;
+    const render = () => {
+      currentX += (targetX - currentX) * 0.09;
+      currentY += (targetY - currentY) * 0.09;
+      section.style.setProperty("--shop-mouse-x", currentX.toFixed(3));
+      section.style.setProperty("--shop-mouse-y", currentY.toFixed(3));
+      if (Math.abs(targetX - currentX) > 0.002 || Math.abs(targetY - currentY) > 0.002) {
+        frame = requestAnimationFrame(render);
+      } else frame = 0;
+    };
+    const start = () => { if (!frame) frame = requestAnimationFrame(render); };
+    const onMove = (event: PointerEvent) => {
+      const rect = section.getBoundingClientRect();
+      targetX = Math.max(-1, Math.min(1, ((event.clientX - rect.left) / rect.width - .5) * 2));
+      targetY = Math.max(-1, Math.min(1, ((event.clientY - rect.top) / Math.min(rect.height, window.innerHeight) - .5) * 2));
+      start();
+    };
+    const reset = () => { targetX = 0; targetY = 0; start(); };
+    section.addEventListener("pointermove", onMove, { passive: true });
+    section.addEventListener("pointerleave", reset);
+    return () => {
+      section.removeEventListener("pointermove", onMove);
+      section.removeEventListener("pointerleave", reset);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, []);
 
   useEffect(() => {
     if (!selectedItem) return;
@@ -304,7 +339,7 @@ export function PortfolioBackground() {
   }, [selectedItem]);
 
   return (
-    <section className="background-section portfolio-background" data-scroll-scene>
+    <section ref={portfolioRef} className="background-section portfolio-background" data-scroll-scene>
       <div className="portfolio-sticky">
         <div className="garage-wall" aria-hidden="true" />
         <div className="garage-bays" aria-hidden="true" />
@@ -339,13 +374,11 @@ export function PortfolioBackground() {
                 <p>SELECT YOUR PROJECT</p>
                 <h2>PORTFOLIO SHOP</h2>
               </div>
-              <nav className="shop-tabs-entry" aria-label="포트폴리오 카테고리">
-                <span aria-current="page">ALL</span>
-                <span>GAME</span>
-                <span>OPERATIONS</span>
-                <span>PLANNING</span>
-                <span>ANALYSIS</span>
-              </nav>
+              <aside className="shop-index-hud" aria-label="포트폴리오 프로젝트 안내">
+                <div><span>PROJECT INDEX</span><strong>05</strong></div>
+                <div><span>MAIN FOCUS</span><strong>LIVE OPS</strong></div>
+                <div><span>VIEW MODE</span><strong>PPT SLIDES</strong></div>
+              </aside>
             </header>
 
             <div className="shop-grid-entry">

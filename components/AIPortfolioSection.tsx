@@ -270,16 +270,16 @@ export function AIPortfolioSection() {
               );
             })}
           </div>
+          <div className="ai-rail-controls" aria-label="AI 작업물 좌우 탐색">
+            <button type="button" disabled={railEdges.start} onClick={() => moveRail(-1)} aria-label="이전 AI 작업물 보기"><ChevronLeft /></button>
+            <button type="button" disabled={railEdges.end} onClick={() => moveRail(1)} aria-label="다음 AI 작업물 보기"><ChevronRight /></button>
+          </div>
         </div>
 
         <div className="ai-rail-footer">
           <span>DRAG · SWIPE</span>
           <div className="ai-scroll-progress" aria-hidden="true"><i style={{ left: `${progress.left}%`, width: `${progress.width}%` }} /></div>
-          <div className="ai-rail-actions">
-            <span>{String(projects.length).padStart(2, "0")} ITEMS</span>
-            <button type="button" disabled={railEdges.start} onClick={() => moveRail(-1)} aria-label="이전 AI 작업물 보기"><ChevronLeft /></button>
-            <button type="button" disabled={railEdges.end} onClick={() => moveRail(1)} aria-label="다음 AI 작업물 보기"><ChevronRight /></button>
-          </div>
+          <span>{String(projects.length).padStart(2, "0")} ITEMS</span>
         </div>
       </div>
 
