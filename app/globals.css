@@ -60,12 +60,36 @@ body {
 .section-transition {
   --progress: 0;
   --section-reveal: 0;
+  --transition-blur: 12px;
+  --transition-from: #fff;
+  --transition-to: #fff;
   position: relative;
   z-index: 1;
   height: clamp(360px,58vh,620px);
   margin: -2px 0;
-  overflow: hidden;
+  overflow: clip;
   isolation: isolate;
+}
+
+.section-transition::before,
+.section-transition::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  height: 28%;
+  pointer-events: none;
+}
+
+.section-transition::before {
+  top: 0;
+  background: linear-gradient(180deg,var(--transition-from) 0%,color-mix(in srgb,var(--transition-from) 74%,transparent) 38%,transparent 100%);
+}
+
+.section-transition::after {
+  bottom: 0;
+  background: linear-gradient(180deg,transparent 0%,color-mix(in srgb,var(--transition-to) 76%,transparent) 58%,var(--transition-to) 100%);
 }
 
 .transition-background,
@@ -78,14 +102,22 @@ body {
 
 .transition-background-from {
   z-index: -3;
-  opacity: clamp(0,calc(1 - var(--progress) * 1.35),1);
-  transform: scale(calc(1 + var(--progress) * .025));
+  inset: -10% -4%;
+  opacity: clamp(0,calc(1 - var(--progress) * 1.08),1);
+  filter: blur(calc(var(--progress) * var(--transition-blur)));
+  transform: scale(calc(1.02 + var(--progress) * .035));
+  -webkit-mask-image: linear-gradient(180deg,#000 0%,#000 36%,rgba(0,0,0,.78) 58%,transparent 100%);
+  mask-image: linear-gradient(180deg,#000 0%,#000 36%,rgba(0,0,0,.78) 58%,transparent 100%);
 }
 
 .transition-background-to {
   z-index: -2;
-  opacity: clamp(0,calc(var(--progress) * 1.35),1);
-  transform: scale(calc(1.025 - var(--progress) * .025));
+  inset: -10% -4%;
+  opacity: clamp(0,calc(var(--progress) * 1.08),1);
+  filter: blur(calc((1 - var(--progress)) * var(--transition-blur)));
+  transform: scale(calc(1.055 - var(--progress) * .035));
+  -webkit-mask-image: linear-gradient(180deg,transparent 0%,rgba(0,0,0,.3) 26%,#000 58%,#000 100%);
+  mask-image: linear-gradient(180deg,transparent 0%,rgba(0,0,0,.3) 26%,#000 58%,#000 100%);
 }
 
 .transition-blend-light {
@@ -117,24 +149,28 @@ body {
 .transition-world-lines i:nth-child(2) { left: 50%; }
 .transition-world-lines i:nth-child(3) { right: 28%; }
 
-.section-transition-landing-bridge { height: clamp(300px,46vh,500px); }
+.section-transition-landing-bridge { --transition-from: #fff; --transition-to: #fff; height: clamp(300px,46vh,500px); }
+.section-transition-landing-bridge { background: #fff; }
 .section-transition-landing-bridge .transition-background-from { background: linear-gradient(180deg,#fff,#eef8ff 44%,#fff); }
 .section-transition-landing-bridge .transition-background-to { background: radial-gradient(ellipse at 50% 70%,rgba(18,120,232,.08),transparent 60%),#fff; }
 
-.section-transition-bridge-qna { height: clamp(320px,50vh,540px); }
+.section-transition-bridge-qna { --transition-from: #fff; --transition-to: #fff; height: clamp(320px,50vh,540px); }
+.section-transition-bridge-qna { background: linear-gradient(180deg,#fff,#f8fbff); }
 .section-transition-bridge-qna .transition-background-from { background: #fff; }
 .section-transition-bridge-qna .transition-background-to { background: radial-gradient(circle at 82% 70%,rgba(18,120,232,.09),transparent 30%),linear-gradient(180deg,#fff,#f8fbff); }
 
-.section-transition-qna-portfolio { height: clamp(380px,60vh,660px); }
+.section-transition-qna-portfolio { --transition-from: #fff; --transition-to: #fff; height: clamp(380px,60vh,660px); }
+.section-transition-qna-portfolio { background: linear-gradient(180deg,#fff 0%,#fbfdff 56%,#fff 100%); }
 .section-transition-qna-portfolio .transition-background-from { background: linear-gradient(180deg,#fff,#fafcff); }
 .section-transition-qna-portfolio .transition-background-to {
-  background-color: #e8eef6;
+  background-color: #fff;
   background-image: linear-gradient(rgba(104,121,114,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(104,121,114,.09) 1px,transparent 1px);
   background-size: 7vw 7vw;
   mask-image: linear-gradient(180deg,transparent,#000 36%);
 }
 
-.section-transition-portfolio-ai { height: clamp(440px,68vh,740px); }
+.section-transition-portfolio-ai { --transition-from: #e8eef6; --transition-to: #3b93ef; height: clamp(440px,68vh,740px); }
+.section-transition-portfolio-ai { --transition-blur: 16px; background: linear-gradient(180deg,#e8eef6 0%,#e4effc 28%,#c7e1ff 52%,#83bff8 76%,#3b93ef 100%); }
 .section-transition-portfolio-ai .transition-background-from {
   background-color: #e8eef6;
   background-image: linear-gradient(rgba(104,121,114,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(104,121,114,.1) 1px,transparent 1px);
@@ -144,7 +180,8 @@ body {
 .section-transition-portfolio-ai .transition-background-to { background: linear-gradient(180deg,#edf4fc,#dceaff 30%,#9dceff 60%,#3b93ef); }
 .section-transition-portfolio-ai .transition-blend-light { background: rgba(215,235,255,.58); filter: blur(64px); }
 
-.section-transition-ai-contact { height: clamp(400px,62vh,680px); }
+.section-transition-ai-contact { --transition-from: #0965cf; --transition-to: #78cffe; height: clamp(400px,62vh,680px); }
+.section-transition-ai-contact { --transition-blur: 15px; background: linear-gradient(180deg,#0965cf 0%,#1278e8 30%,#3d9bed 65%,#78cffe 100%); }
 .section-transition-ai-contact .transition-background-from { background: linear-gradient(180deg,#0965cf,#1278e8 58%,#61baf4); }
 .section-transition-ai-contact .transition-background-to { background: radial-gradient(ellipse at 70% 100%,rgba(135,211,104,.65),transparent 36%),linear-gradient(180deg,#3d9bed,#78cffe); }
 
@@ -1990,12 +2027,24 @@ body {
 .contact-background {
   z-index: 2;
   min-height: 150vh;
-  margin-top: -6vh;
+  margin-top: 0;
   background: #78cffe;
-  border-radius: 48% 52% 0 0 / 12vh 12vh 0 0;
-  box-shadow: 0 -8rem 12rem rgba(255,255,255,.52);
-  -webkit-mask-image: linear-gradient(to bottom,transparent 0,#000 17vh,#000 100%);
-  mask-image: linear-gradient(to bottom,transparent 0,#000 17vh,#000 100%);
+  border-radius: 0;
+  box-shadow: none;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.contact-background::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 34vh;
+  background: linear-gradient(180deg,#78cffe 0%,rgba(120,207,254,.82) 24%,rgba(120,207,254,.28) 62%,transparent 100%);
+  pointer-events: none;
 }
 
 .contact-image {
