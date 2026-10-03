@@ -182,6 +182,7 @@ export function LandingBackground() {
 
   return (
     <section
+      id="home"
       ref={heroRef}
       className="background-section landing-background"
       data-scroll-scene
@@ -229,6 +230,7 @@ export function LandingBackground() {
 export function NexonBridgeSection() {
   return (
     <section
+      id="why-nexon"
       className="checkpoint-bridge"
       data-scroll-scene
       aria-labelledby="why-nexon-title"
@@ -244,7 +246,6 @@ export function NexonBridgeSection() {
         <div className="checkpoint-gantry">
           <div className="checkpoint-beam" aria-hidden="true">
             <span>지원 동기</span>
-            <span>넥슨</span>
           </div>
           <article className="checkpoint-sign">
             <p className="checkpoint-label">게임 운영 직무 지원 동기</p>
@@ -342,7 +343,7 @@ export function PortfolioBackground() {
   }, [selectedItem]);
 
   return (
-    <section ref={portfolioRef} className="background-section portfolio-background" data-scroll-scene>
+    <section id="portfolio" ref={portfolioRef} className="background-section portfolio-background" data-scroll-scene>
       <div className="portfolio-sticky">
         <div className="garage-wall" aria-hidden="true" />
         <div className="garage-bays" aria-hidden="true" />
@@ -547,6 +548,7 @@ export function AIPortfolioBackground() {
 export function ContactBackground() {
   return (
     <section
+      id="contact"
       className="background-section contact-background"
       data-scroll-scene
       aria-labelledby="contact-title"
@@ -567,7 +569,6 @@ export function ContactBackground() {
             <span>끝까지 봐주셔서 감사합니다.</span>
             <span>게임 운영자로 성장할 기회를 기다리고 있습니다.</span>
           </h2>
-          <span>GAME OPERATIONS APPLICANT · KANG SEUNG HYE</span>
         </header>
 
         <div className="contact-ceremony" aria-label="지원자 연락처 안내">
@@ -582,7 +583,6 @@ export function ContactBackground() {
         <aside className="contact-result-card" aria-label="강승혜 연락처">
           <div className="contact-result-title">
             <span>CONTACT INFORMATION</span>
-            <strong>APPLICANT</strong>
           </div>
           <dl>
             <div>
@@ -591,14 +591,14 @@ export function ContactBackground() {
             </div>
             <div>
               <dt><Mail aria-hidden="true" /> EMAIL</dt>
-              <dd>seunghye@email.com</dd>
+              <dd>watnu03@gmail.com</dd>
             </div>
             <div>
               <dt><Phone aria-hidden="true" /> PHONE</dt>
               <dd>010-0000-0000</dd>
             </div>
           </dl>
-          <a className="contact-mail-cta" href="mailto:seunghye@email.com">
+          <a className="contact-mail-cta" href="mailto:watnu03@gmail.com">
             메일 보내기 <ArrowUpRight aria-hidden="true" />
           </a>
         </aside>

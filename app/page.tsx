@@ -7,10 +7,12 @@ import {
 import { AIPortfolioSection } from "@/components/AIPortfolioSection";
 import { QnASection } from "@/components/QnASection";
 import { SectionTransition } from "@/components/SectionTransition";
+import { SectionNav } from "@/components/SectionNav";
 
 export default function Home() {
   return (
     <main className="racing-world" aria-label="강승혜 게임 운영직무 포트폴리오">
+      <SectionNav />
       <LandingBackground />
       <SectionTransition variant="landing-bridge" label="지원 동기 섹션으로 이동" />
       <NexonBridgeSection />

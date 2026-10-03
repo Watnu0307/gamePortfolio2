@@ -17,24 +17,30 @@ export type QnAItem = {
 export const qnaData: QnAItem[] = [
   {
     id: "Q1",
+    question: "게임을 얼마나 다양하게 경험했나요?",
+    answer:
+      "80개 이상의 게임을 플레이하며 RPG, 액션, 캐주얼, 시뮬레이션 등 여러 장르의 콘텐츠와 운영 방식을 경험했습니다. 단순히 플레이하는 데서 그치지 않고 재미를 느낀 지점, 불편했던 흐름, 유저 반응이 달라지는 요소를 기록하며 게임을 운영의 관점으로 바라보는 습관을 길렀습니다.",
+  },
+  {
+    id: "Q2",
     question: "나의 장단점은 무엇인가요?",
     answer:
       "저의 장점은 플레이어 관점에서 게임을 세심하게 바라보는 습관입니다. 다양한 게임을 직접 오래 플레이하며 불편한 점과 재미 포인트를 자연스럽게 정리해왔습니다. 반면 한 가지를 꼼꼼히 보려다 생각이 길어질 때가 있지만, 우선순위를 정하고 정리하는 방식으로 보완하고 있습니다.",
   },
   {
-    id: "Q2",
+    id: "Q3",
     question: "왜 게임회사, 그중에서도 운영 직무에 지원했나요?",
     answer:
       "저는 게임을 단순히 즐기는 것에서 끝나지 않고, 플레이어가 더 오래 즐길 수 있는 환경을 만드는 일에 관심이 많았습니다. 운영 직무는 유저 경험과 가장 가까운 자리에서 게임의 흐름을 살피고, 서비스를 더 안정적이고 즐겁게 만드는 역할이라고 생각해 지원했습니다.",
   },
   {
-    id: "Q3",
+    id: "Q4",
     question: "나의 게임 경험은 어떤 강점이 되나요?",
     answer:
       "80개 이상의 다양한 게임을 플레이하며 장르별 재미 요소와 유저 반응 포인트를 경험했습니다. 덕분에 플레이어 입장에서 콘텐츠를 받아들이는 감각과 서비스 운영에서 중요하게 봐야 할 부분을 함께 생각하는 습관을 길렀습니다.",
   },
   {
-    id: "Q4",
+    id: "Q5",
     question: "어떤 운영자가 되고 싶나요?",
     answer:
       "저는 유저의 목소리를 빠르게 이해하고, 작은 불편도 놓치지 않는 운영자가 되고 싶습니다. 문제를 단순히 처리하는 데서 끝나는 것이 아니라, 플레이어가 계속 게임을 즐기고 싶게 만드는 운영을 배우고 실천하고 싶습니다.",
@@ -49,9 +55,9 @@ export function QnAHeader() {
           <MessageCircleQuestion aria-hidden="true" />
           Q&amp;A
         </p>
-        <h2 id="qna-title">게임 운영 지원자 Q&amp;A</h2>
+        <h2 id="qna-title">신입 지원자 Q&amp;A</h2>
         <p className="qna-description">
-          질문과 답변으로 저의 경험과 운영 관점을 소개합니다.
+          신입 지원자의 경험과 생각을 답변에 담았습니다.
         </p>
       </div>
 
@@ -94,6 +100,7 @@ export function QnACard({ item, index }: { item: QnAItem; index: number }) {
 export function QnASection() {
   return (
     <section
+      id="qna"
       className="background-section qna-section"
       data-scroll-scene
       aria-labelledby="qna-title"

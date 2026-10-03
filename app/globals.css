@@ -67,6 +67,52 @@ body {
   font-family: var(--font-body);
 }
 
+.section-nav {
+  position: fixed;
+  z-index: 100;
+  top: 1rem;
+  left: 50%;
+  display: flex;
+  max-width: calc(100vw - 2rem);
+  align-items: center;
+  justify-content: center;
+  gap: .2rem;
+  padding: .38rem;
+  overflow-x: auto;
+  border: 1px solid rgba(18,120,232,.16);
+  border-radius: 999px;
+  background: rgba(255,255,255,.88);
+  box-shadow: 0 12px 34px rgba(19,56,99,.12);
+  backdrop-filter: blur(16px);
+  transform: translateX(-50%);
+  scrollbar-width: none;
+}
+
+.section-nav::-webkit-scrollbar { display: none; }
+.section-nav a {
+  flex: 0 0 auto;
+  padding: .68rem .9rem;
+  border-radius: 999px;
+  color: #68788d;
+  font-family: var(--font-title);
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  transition: color .2s ease,background-color .2s ease,box-shadow .2s ease;
+}
+.section-nav a:hover { color: #1278e8; background: #edf5ff; }
+.section-nav a.is-active { color: #fff; background: #1278e8; box-shadow: 0 6px 15px rgba(18,120,232,.28); }
+
+#home,
+#why-nexon,
+#qna,
+#portfolio,
+#ai-portfolio,
+#contact { scroll-margin-top: 5rem; }
+
 .racing-world {
   --shop-transition-progress: 0;
   position: relative;
@@ -298,7 +344,11 @@ body {
   flex-direction: column;
   align-items: flex-start;
   margin-top: .18em;
-  font-size: 1.08em;
+  font-family: var(--font-display);
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: inherit;
+  line-height: inherit;
 }
 
 .hero-introduction strong {
@@ -513,7 +563,7 @@ body {
   display: flex;
   height: 2.4rem;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 1.25rem;
   border: 0;
   border-radius: 22px 22px 0 0;
@@ -529,7 +579,7 @@ body {
 .checkpoint-sign {
   position: relative;
   z-index: 2;
-  margin: 0 clamp(1rem,3vw,3.5rem);
+  margin: 0;
   padding: clamp(1.6rem,2.7vw,2.7rem) clamp(1.5rem,4vw,4.4rem) clamp(1.45rem,2.4vw,2.35rem);
   border: 1px solid rgba(18,120,232,.22);
   border-top: 0;
@@ -766,7 +816,7 @@ body {
   padding: 0 clamp(.25rem,1vw,1rem);
 }
 
-.qna-heading-copy { max-width: 760px; }
+.qna-heading-copy { max-width: 760px; background: transparent !important; }
 
 .qna-label {
   display: inline-flex;
@@ -792,6 +842,7 @@ body {
   font-weight: 900;
   letter-spacing: -.055em;
   line-height: 1.04;
+  background: transparent !important;
 }
 
 .qna-description {
@@ -1302,10 +1353,23 @@ body {
 .shop-toolbar-entry h2 {
   margin: 0;
   color: #111;
-  font-size: clamp(2.1rem,3vw,3.6rem);
+  position: relative;
+  display: inline-block;
+  font-size: clamp(3rem,4.25vw,5rem);
   font-weight: 950;
   letter-spacing: -.055em;
   line-height: 1;
+}
+
+.shop-toolbar-entry h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -.32rem;
+  width: 42%;
+  height: .28rem;
+  border-radius: 99px;
+  background: #1278e8;
 }
 
 .shop-tabs-entry {
@@ -1972,8 +2036,14 @@ body {
 .ai-portfolio-header h2 { margin: 0; font-size: clamp(2.65rem,5vw,5.4rem); font-weight: 950; letter-spacing: -.065em; line-height: .98; }
 .ai-portfolio-header > div > span { display: block; margin-top: 1.25rem; color: rgba(255,255,255,.78); font-size: clamp(.95rem,1.2vw,1.12rem); line-height: 1.7; }
 
-.ai-shop-badge { display: grid; flex: 0 0 auto; width: clamp(150px,13vw,210px); place-items: center; filter: drop-shadow(0 22px 24px rgba(2,48,106,.28)); transform: rotate(3deg); }
+.ai-shop-badge { display: grid; flex: 0 0 auto; width: clamp(150px,13vw,210px); place-items: center; filter: drop-shadow(0 22px 24px rgba(2,48,106,.28)); transform: rotate(3deg); animation: ai-ufo-float 4.2s ease-in-out infinite; }
 .ai-shop-badge img { display: block; width: 100%; height: auto; object-fit: contain; }
+
+@keyframes ai-ufo-float {
+  0%,100% { transform: translate3d(0,0,0) rotate(3deg); }
+  45% { transform: translate3d(-3px,-12px,0) rotate(1deg); }
+  72% { transform: translate3d(2px,-5px,0) rotate(4deg); }
+}
 
 .ai-category-tabs { display: flex; gap: .45rem; margin: clamp(2.3rem,4vw,3.8rem) clamp(1.25rem,5vw,5rem) 1.3rem; padding: .45rem; overflow-x: auto; border: 1px solid rgba(255,255,255,.18); border-radius: 18px; background: rgba(8,67,137,.42); scrollbar-width: none; }
 .ai-category-tabs::-webkit-scrollbar { display: none; }
@@ -2145,14 +2215,14 @@ body {
   transform: none;
 }
 
-.contact-finish-copy { align-self: start; margin-top: 8vh; margin-left: clamp(4rem,6vw,7rem); color: #fff; text-shadow: 0 4px 22px rgba(4,47,92,.24); }
+.contact-finish-copy { position: relative; z-index: 10; align-self: start; width: min(58vw,900px); margin-top: 8vh; margin-left: clamp(4rem,6vw,7rem); color: #fff; text-shadow: 0 4px 22px rgba(4,47,92,.24); }
 .contact-finish-copy p { display: flex; align-items: center; gap: .65rem; margin: 0 0 1.2rem; color: #ffd54a; font-size: .78rem; font-weight: 950; letter-spacing: .15em; }
 .contact-finish-copy p svg { width: 1.1rem; }
-.contact-finish-copy h2 { margin: 0; font-size: clamp(2.25rem,2.65vw,2.65rem); font-weight: 950; letter-spacing: -.055em; line-height: 1.25; }
+.contact-finish-copy h2 { position: relative; z-index: 10; margin: 0; font-size: clamp(3.15rem,4.1vw,5.25rem); font-weight: 950; letter-spacing: -.055em; line-height: 1.1; }
 .contact-finish-copy h2 span { display: block; white-space: nowrap; }
 .contact-finish-copy span { display: block; margin-top: 1.5rem; color: rgba(255,255,255,.78); font-size: .78rem; font-weight: 900; letter-spacing: .18em; }
 
-.contact-ceremony { position: relative; align-self: end; display: grid; min-height: 72vh; place-items: end center; }
+.contact-ceremony { position: relative; z-index: 3; align-self: end; display: grid; min-height: 72vh; place-items: end center; }
 .contact-winner-halo { position: absolute; left: 53%; bottom: 4%; width: min(34vw,500px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle,rgba(255,222,89,.34),rgba(255,255,255,.1) 42%,transparent 70%); filter: blur(10px); transform: translateX(-50%); animation: contact-halo 3.5s ease-in-out infinite; }
 .contact-winner-character { position: absolute; z-index: 3; left: 53%; bottom: 3%; width: min(33vw,500px); max-height: 75vh; object-fit: contain; transform: translateX(-50%); transform-origin: center bottom; filter: drop-shadow(0 22px 28px rgba(3,38,75,.3)); animation: contact-winner-float 4s ease-in-out infinite; user-select: none; }
 
@@ -2325,7 +2395,6 @@ textarea {
   font-weight: 700;
 }
 
-.hero-introduction,
 .checkpoint-copy,
 .qna-description,
 .qna-answer p,
@@ -2403,6 +2472,8 @@ textarea {
 }
 
 @media (max-width: 900px) {
+  .section-nav { top: .65rem; max-width: calc(100vw - 1rem); justify-content: flex-start; }
+  .section-nav a { padding: .62rem .75rem; font-size: .6rem; }
   .background-section { min-height: 108vh; }
   .landing-background { min-height: 150vh; }
   .landing-background-parallax { inset: -2%; }
@@ -2422,7 +2493,7 @@ textarea {
   .scroll-indicator { bottom: 2.6vh; }
   .checkpoint-bridge { min-height: clamp(620px,82vh,820px); }
   .checkpoint-gantry { width: 92vw; }
-  .checkpoint-sign { margin-inline: 1rem; }
+  .checkpoint-sign { margin-inline: 0; }
   .checkpoint-post-left { left: 1rem; }
   .checkpoint-post-right { right: 1rem; }
   .qna-section {
@@ -2477,7 +2548,7 @@ textarea {
     min-height: 0;
     padding: 8rem 5vw 7rem;
   }
-  .contact-finish-copy { margin-top: 0; margin-left: 0; text-align: center; }
+  .contact-finish-copy { width: 100%; margin-top: 0; margin-left: 0; text-align: center; }
   .contact-finish-copy p { justify-content: center; }
   .contact-ceremony { min-height: 620px; }
   .contact-winner-character { width: min(78vw,540px); }
@@ -2520,7 +2591,7 @@ textarea {
   .checkpoint-gantry { top: 48%; width: 96vw; padding-inline: .55rem; }
   .checkpoint-beam { height: 2rem; padding-inline: .75rem; font-size: .52rem; }
   .checkpoint-sign {
-    margin-inline: .65rem;
+    margin-inline: 0;
     padding: 1.35rem 1.2rem 1.25rem;
     border-radius: 0 0 15px 15px;
   }

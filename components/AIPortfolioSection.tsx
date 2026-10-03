@@ -197,6 +197,7 @@ export function AIPortfolioSection() {
 
   return (
     <section
+      id="ai-portfolio"
       className="ai-portfolio-section"
       data-scroll-scene
       aria-labelledby="ai-portfolio-title"
