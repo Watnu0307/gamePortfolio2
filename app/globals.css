@@ -2193,7 +2193,7 @@ body {
   background: linear-gradient(180deg,#fff 0%,#e9f3ff 7%,#5da7f5 15%,#1278e8 25%,#1278e8 76%,#5da7f5 88%,#e9f3ff 96%,#fff 100%) !important;
 }
 .ai-scene-hold {
-  background: linear-gradient(180deg,#fff 0%,#e9f3ff 7%,#5da7f5 15%,#1278e8 25%,#1278e8 76%,#5da7f5 88%,#e9f3ff 96%,#fff 100%);
+  background: transparent;
 }
 .ai-portfolio-header > div > span { color: rgba(255,255,255,.82); }
 .ai-category-tabs { border-color: rgba(255,255,255,.52); background: rgba(255,255,255,.18); box-shadow: 0 14px 34px rgba(5,63,130,.16); backdrop-filter: blur(12px); }
