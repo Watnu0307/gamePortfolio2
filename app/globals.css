@@ -2058,9 +2058,93 @@ body {
 .contact-atmosphere {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg,rgba(255,255,255,.42) 0,transparent 18%), radial-gradient(circle at 72% 38%,rgba(255,255,255,.22) 0 12%,transparent 42%);
+  z-index: 1;
+  background: linear-gradient(180deg,rgba(255,255,255,.34) 0,transparent 22%,rgba(3,45,96,.16) 100%),radial-gradient(circle at 72% 34%,rgba(255,255,255,.28) 0 10%,transparent 38%);
   pointer-events: none;
 }
+
+.contact-spotlight {
+  position: absolute;
+  z-index: 2;
+  top: -12%;
+  width: 34vw;
+  height: 92vh;
+  opacity: .3;
+  background: linear-gradient(180deg,rgba(255,255,255,.84),rgba(255,239,166,.22) 54%,transparent 92%);
+  filter: blur(22px);
+  clip-path: polygon(42% 0,58% 0,100% 100%,0 100%);
+  transform-origin: center top;
+  animation: contact-spotlight 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.contact-spotlight-left { left: 22%; transform: rotate(7deg); }
+.contact-spotlight-right { right: 18%; transform: rotate(-8deg); animation-delay: -4s; }
+
+.contact-confetti { position: absolute; z-index: 6; inset: 0; overflow: hidden; pointer-events: none; }
+.contact-confetti i { position: absolute; top: -8%; width: 8px; height: 18px; border-radius: 3px; background: #ffd54a; opacity: .78; animation: contact-confetti 9s linear infinite; }
+.contact-confetti i:nth-child(2) { left: 18%; background: #fff; animation-delay: -5s; }
+.contact-confetti i:nth-child(3) { left: 32%; background: #66bbff; animation-delay: -2s; }
+.contact-confetti i:nth-child(4) { left: 48%; background: #ffd54a; animation-delay: -7s; }
+.contact-confetti i:nth-child(5) { left: 63%; background: #fff; animation-delay: -3s; }
+.contact-confetti i:nth-child(6) { left: 74%; background: #66bbff; animation-delay: -8s; }
+.contact-confetti i:nth-child(7) { left: 86%; background: #ffd54a; animation-delay: -4s; }
+.contact-confetti i:nth-child(8) { left: 94%; background: #fff; animation-delay: -1s; }
+
+.contact-finish-shell {
+  position: sticky;
+  z-index: 7;
+  top: 0;
+  display: grid;
+  grid-template-columns: minmax(260px,.9fr) minmax(360px,1.05fr) minmax(300px,.9fr);
+  align-items: center;
+  gap: clamp(1.5rem,3vw,4rem);
+  width: min(92vw,1680px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: clamp(6rem,9vh,9rem) 0 clamp(4rem,7vh,7rem);
+  opacity: var(--section-reveal);
+  transform: translateY(calc((1 - var(--section-reveal)) * 26px));
+  will-change: opacity,transform;
+}
+
+.contact-finish-copy { align-self: start; margin-top: 8vh; color: #fff; text-shadow: 0 4px 22px rgba(4,47,92,.24); }
+.contact-finish-copy p { display: flex; align-items: center; gap: .65rem; margin: 0 0 1.2rem; color: #ffd54a; font-size: .78rem; font-weight: 950; letter-spacing: .15em; }
+.contact-finish-copy p svg { width: 1.1rem; }
+.contact-finish-copy h2 { margin: 0; font-size: clamp(2.4rem,3.1vw,3.8rem); font-weight: 950; letter-spacing: -.06em; line-height: 1.1; }
+.contact-finish-copy span { display: block; margin-top: 1.5rem; color: rgba(255,255,255,.78); font-size: .78rem; font-weight: 900; letter-spacing: .18em; }
+
+.contact-ceremony { position: relative; align-self: end; display: grid; min-height: 72vh; place-items: end center; }
+.contact-winner-halo { position: absolute; left: 50%; bottom: 14%; width: min(38vw,560px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle,rgba(255,222,89,.4),rgba(255,255,255,.12) 42%,transparent 70%); filter: blur(10px); transform: translateX(-50%); animation: contact-halo 3.5s ease-in-out infinite; }
+.contact-winner-character { position: absolute; z-index: 3; left: 50%; bottom: 15%; width: min(38vw,560px); max-height: 70vh; object-fit: contain; transform: translateX(-50%); transform-origin: center bottom; filter: drop-shadow(0 24px 30px rgba(3,38,75,.28)); animation: contact-winner-float 4s ease-in-out infinite; user-select: none; }
+.contact-podium { position: relative; z-index: 4; display: flex; align-items: flex-end; justify-content: center; width: min(42vw,620px); filter: drop-shadow(0 26px 34px rgba(2,41,83,.26)); }
+.contact-podium-step { display: grid; place-items: start center; border: 2px solid rgba(255,255,255,.68); border-bottom: 0; color: #fff; background: linear-gradient(180deg,rgba(37,134,234,.94),rgba(7,87,180,.96)); box-shadow: inset 0 1px 0 rgba(255,255,255,.5); }
+.contact-podium-step span { margin-top: 1rem; font-size: clamp(1.4rem,2.5vw,2.6rem); font-weight: 950; }
+.contact-podium-second { width: 28%; height: 8.5rem; border-radius: 22px 0 0 0; }
+.contact-podium-first { position: relative; width: 38%; height: 12rem; border-color: rgba(255,229,115,.9); border-radius: 26px 26px 0 0; background: linear-gradient(180deg,#2b91f2,#0a62c2); }
+.contact-podium-first::before { content: "WINNER"; position: absolute; top: -.9rem; padding: .36rem .75rem; border-radius: 999px; color: #534100; background: #ffd54a; font-size: .58rem; font-weight: 950; letter-spacing: .13em; box-shadow: 0 8px 20px rgba(100,74,0,.2); }
+.contact-podium-first svg { width: 1.4rem; color: #ffd54a; }
+.contact-podium-third { width: 26%; height: 6.5rem; border-radius: 0 22px 0 0; }
+
+.contact-result-card { align-self: center; padding: 1.45rem; border: 1px solid rgba(255,255,255,.62); border-radius: 28px; color: #172b46; background: rgba(255,255,255,.84); box-shadow: 0 28px 70px rgba(0,46,99,.22),inset 0 1px 0 #fff; backdrop-filter: blur(18px); }
+.contact-result-title { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(18,120,232,.14); }
+.contact-result-title span { color: #1278e8; font-size: .65rem; font-weight: 950; letter-spacing: .14em; }
+.contact-result-title strong { color: #75869b; font-size: .65rem; letter-spacing: .1em; }
+.contact-result-card dl { display: grid; gap: .6rem; margin: 1rem 0 1.2rem; }
+.contact-result-card dl > div { padding: .85rem .9rem; border: 1px solid rgba(18,120,232,.1); border-radius: 16px; background: rgba(246,250,255,.78); transition: border-color .2s ease,background-color .2s ease,transform .2s ease; }
+.contact-result-card dl > div:hover { border-color: rgba(18,120,232,.28); background: #fff; transform: translateY(-2px); }
+.contact-result-card dt { display: flex; align-items: center; gap: .45rem; color: #1278e8; font-size: .58rem; font-weight: 950; letter-spacing: .11em; }
+.contact-result-card dt svg { width: .9rem; height: .9rem; }
+.contact-result-card dd { margin: .42rem 0 0; font-size: clamp(.9rem,1.05vw,1.05rem); font-weight: 850; }
+.contact-mail-cta { display: flex; align-items: center; justify-content: center; gap: .55rem; min-height: 48px; border-radius: 15px; color: #fff; background: #1278e8; font-size: .86rem; font-weight: 900; text-decoration: none; box-shadow: 0 14px 28px rgba(18,120,232,.25); transition: transform .2s ease,background-color .2s ease; }
+.contact-mail-cta:hover { color: #fff; background: #0a62c2; transform: translateY(-2px); }
+.contact-mail-cta svg { width: 1rem; }
+.contact-result-card > p { margin: .9rem 0 0; color: #75869b; font-size: .7rem; text-align: center; }
+
+@keyframes contact-spotlight { to { opacity: .4; transform: rotate(-3deg) translateX(4%); } }
+@keyframes contact-confetti { to { transform: translate3d(4vw,112vh,0) rotate(540deg); } }
+@keyframes contact-halo { 50% { opacity: .72; transform: translateX(-50%) scale(1.06); } }
+@keyframes contact-winner-float { 50% { transform: translateX(-50%) translateY(-6px) rotate(.25deg); } }
 
 @media (max-width: 900px) {
   .background-section { min-height: 108vh; }
@@ -2129,6 +2213,20 @@ body {
   .ai-portfolio-header { align-items: flex-start; }
   .ai-shop-badge { width: 92px; height: 92px; border-radius: 24px; }
   .ai-project-card { flex-basis: clamp(270px,72vw,340px); }
+  .contact-background { min-height: auto; }
+  .contact-finish-shell {
+    position: relative;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    min-height: 0;
+    padding: 8rem 5vw 7rem;
+  }
+  .contact-finish-copy { margin-top: 0; text-align: center; }
+  .contact-finish-copy p { justify-content: center; }
+  .contact-ceremony { min-height: 620px; }
+  .contact-winner-character { width: min(78vw,540px); }
+  .contact-podium { width: min(86vw,590px); }
+  .contact-result-card { width: min(100%,520px); margin: 0 auto; }
 }
 
 @media (max-width: 640px) {
@@ -2150,6 +2248,16 @@ body {
   .ai-modal-detail-grid { grid-template-columns: 1fr; padding: 1rem; }
   .ai-modal-detail-grid .ai-modal-result { grid-column: auto; }
   .ai-project-modal > footer { align-items: flex-start; flex-direction: column; padding: 0 1rem 1.2rem; }
+  .contact-finish-shell { padding: 7rem 1rem 5rem; }
+  .contact-finish-copy h2 { font-size: clamp(2.15rem,10.5vw,3rem); }
+  .contact-finish-copy span { font-size: .66rem; }
+  .contact-ceremony { min-height: 460px; }
+  .contact-winner-character { bottom: 17%; width: min(96vw,450px); }
+  .contact-podium { width: 96vw; }
+  .contact-podium-second { height: 6.5rem; }
+  .contact-podium-first { height: 9rem; }
+  .contact-podium-third { height: 5rem; }
+  .contact-result-card { padding: 1rem; border-radius: 22px; }
   .checkpoint-bridge { min-height: 82vh; }
   .checkpoint-course { inset: 0; }
   .checkpoint-route-lines { width: 86vw; }

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { ArrowUpRight, X } from "lucide-react";
+import { ArrowUpRight, Mail, Phone, Trophy, UserRound, X } from "lucide-react";
 
 type ShopItem = {
   number: string;
@@ -550,9 +550,68 @@ export function AIPortfolioBackground() {
 
 export function ContactBackground() {
   return (
-    <section className="background-section contact-background" data-scroll-scene>
+    <section
+      className="background-section contact-background"
+      data-scroll-scene
+      aria-labelledby="contact-title"
+    >
       <div className="contact-image" aria-hidden="true" />
       <div className="contact-atmosphere" aria-hidden="true" />
+      <div className="contact-spotlight contact-spotlight-left" aria-hidden="true" />
+      <div className="contact-spotlight contact-spotlight-right" aria-hidden="true" />
+      <div className="contact-confetti" aria-hidden="true">
+        <i /><i /><i /><i /><i /><i /><i /><i />
+      </div>
+
+      <div className="contact-finish-shell">
+        <header className="contact-finish-copy">
+          <p><Trophy aria-hidden="true" /> RACE FINISH · CONTACT</p>
+          <h2 id="contact-title">
+            완주했습니다.<br />
+            이제 함께 달릴 준비가 되었습니다.
+          </h2>
+          <span>READY FOR THE NEXT RACE</span>
+        </header>
+
+        <div className="contact-ceremony" aria-label="레이스 완주 시상대">
+          <div className="contact-winner-halo" aria-hidden="true" />
+          <img
+            className="contact-winner-character"
+            src="/images/shop-character.png"
+            alt="노란 레이싱 슈트와 카트로 완주한 강승혜 캐릭터"
+          />
+          <div className="contact-podium" aria-hidden="true">
+            <div className="contact-podium-step contact-podium-second"><span>2</span></div>
+            <div className="contact-podium-step contact-podium-first"><span>1</span><Trophy /></div>
+            <div className="contact-podium-step contact-podium-third"><span>3</span></div>
+          </div>
+        </div>
+
+        <aside className="contact-result-card" aria-label="강승혜 연락처">
+          <div className="contact-result-title">
+            <span>FINAL RESULT</span>
+            <strong>PLAYER 01</strong>
+          </div>
+          <dl>
+            <div>
+              <dt><UserRound aria-hidden="true" /> NAME</dt>
+              <dd>강승혜</dd>
+            </div>
+            <div>
+              <dt><Mail aria-hidden="true" /> EMAIL</dt>
+              <dd>seunghye@email.com</dd>
+            </div>
+            <div>
+              <dt><Phone aria-hidden="true" /> PHONE</dt>
+              <dd>010-0000-0000</dd>
+            </div>
+          </dl>
+          <a className="contact-mail-cta" href="mailto:seunghye@email.com">
+            메일 보내기 <ArrowUpRight aria-hidden="true" />
+          </a>
+          <p>함께 달릴 다음 레이스를 기다립니다.</p>
+        </aside>
+      </div>
     </section>
   );
 }
