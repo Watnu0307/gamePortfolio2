@@ -686,7 +686,7 @@ body {
 
 .qna-section {
   min-height: auto;
-  padding: clamp(11rem,14vw,16rem) 5vw clamp(14rem,17vw,20rem);
+  padding: clamp(7rem,9vw,10rem) 5vw clamp(8rem,10vw,12rem);
   background:
     radial-gradient(circle at 92% 9%,rgba(18,120,232,.085),transparent 25rem),
     linear-gradient(180deg,#fff 0%,#fafcff 66%,#fff 100%);
@@ -2245,12 +2245,12 @@ body {
   }
 
   .qna-section {
-    padding-top: clamp(12rem,15vw,17rem);
-    padding-bottom: calc(clamp(14rem,17vw,20rem) + 24vh);
+    padding-top: clamp(7rem,9vw,10rem);
+    padding-bottom: clamp(9rem,11vw,13rem);
   }
 
   .ai-portfolio-section {
-    min-height: 165vh;
+    min-height: 138vh;
     padding: 0;
   }
 
@@ -2265,7 +2265,7 @@ body {
   }
 
   .ai-portfolio-shell {
-    --ai-exit: clamp(0,calc((var(--progress) - .8) * 5),1);
+    --ai-exit: clamp(0,calc((var(--progress) - .9) * 10),1);
     opacity: clamp(0,calc(var(--section-reveal) - var(--ai-exit)),1);
     transform: translateY(calc((1 - var(--section-reveal)) * 52px + var(--ai-exit) * -34px));
   }
@@ -2277,6 +2277,10 @@ body {
   .contact-background::before {
     display: none !important;
   }
+}
+
+.section-transition-ai-contact {
+  height: clamp(170px,26vh,280px);
 }
 
 @media (max-width: 900px) {
