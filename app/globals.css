@@ -2146,6 +2146,65 @@ body {
 @keyframes contact-halo { 50% { opacity: .72; transform: translateX(-50%) scale(1.06); } }
 @keyframes contact-winner-float { 50% { transform: translateX(-50%) translateY(-6px) rotate(.25deg); } }
 
+/* Landing 이후에는 장식 패턴 없이 하나의 깨끗한 흰색 세계로 이어집니다. */
+.checkpoint-bridge,
+.qna-section,
+.portfolio-background,
+.portfolio-sticky,
+.ai-portfolio-section,
+.contact-background,
+.section-transition {
+  background: #fff !important;
+}
+
+.checkpoint-course,
+.checkpoint-light-wash,
+.checkpoint-route-lines,
+.qna-section::before,
+.qna-section::after,
+.qna-route,
+.qna-track-mark,
+.qna-checkers,
+.track-connector,
+.garage-wall,
+.garage-bays,
+.garage-floor,
+.pit-line,
+.shop-ambient-glow,
+.portfolio-sticky::after,
+.portfolio-background::before,
+.transition-background,
+.transition-blend-light,
+.transition-world-lines,
+.section-transition::before,
+.section-transition::after,
+.ai-portfolio-section::before,
+.ai-portfolio-section::after,
+.ai-shop-orb,
+.contact-image,
+.contact-atmosphere,
+.contact-spotlight,
+.contact-confetti,
+.contact-background::before {
+  display: none !important;
+}
+
+.ai-portfolio-section { color: #172b46; }
+.ai-portfolio-header > div > span { color: #607086; }
+.ai-category-tabs { border-color: #dce7f5; background: #f3f7fc; }
+.ai-category-tabs button { color: #6d7f95; }
+.ai-category-tabs button[aria-pressed="true"] { color: #fff; background: #1278e8; }
+.ai-rail-footer { color: #607086; }
+.ai-scroll-progress { background: #dce7f5; }
+.ai-scroll-progress i { background: #1278e8; box-shadow: 0 0 12px rgba(18,120,232,.28); }
+.ai-rail-controls button { border-color: #dce7f5; box-shadow: 0 14px 32px rgba(35,78,127,.18); }
+
+.contact-finish-copy { color: #172b46; text-shadow: none; }
+.contact-finish-copy p { color: #1278e8; }
+.contact-finish-copy span { color: #607086; }
+.contact-result-card { border-color: #dce7f5; box-shadow: 0 28px 70px rgba(31,74,122,.15),inset 0 1px 0 #fff; }
+.contact-winner-halo { background: radial-gradient(circle,rgba(255,213,74,.32),rgba(18,120,232,.06) 44%,transparent 72%); }
+
 @media (max-width: 900px) {
   .background-section { min-height: 108vh; }
   .landing-background { min-height: 150vh; }
