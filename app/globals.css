@@ -2,6 +2,30 @@
 @import "tw-animate-css";
 @import "../vendor/shadcn-tailwind-4.13.0.css";
 
+@font-face {
+  font-family: "NEXON Kart Gothic Thai";
+  src: url("/fonts/NEXON Kart Gothic Thai OTF Bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NEXON Lv2 Gothic";
+  src: url("/fonts/NEXON Lv2 Gothic OTF Bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NEXON Lv1 Gothic";
+  src: url("/fonts/NEXON Lv1 Gothic Low OTF.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #172b46;
@@ -22,6 +46,9 @@
   --popover-foreground: #172b46;
   --destructive: #df3f47;
   --radius: 0.75rem;
+  --font-display: "NEXON Kart Gothic Thai", "NEXON Lv2 Gothic", "Malgun Gothic", sans-serif;
+  --font-title: "NEXON Lv2 Gothic", "NEXON Lv1 Gothic", "Malgun Gothic", sans-serif;
+  --font-body: "NEXON Lv1 Gothic", "Malgun Gothic", Arial, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -37,7 +64,7 @@ body {
   overflow-x: clip;
   background: #ffffff;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
 }
 
 .racing-world {
@@ -2241,6 +2268,85 @@ body {
   pointer-events: none;
 }
 .contact-winner-halo { background: radial-gradient(circle,rgba(255,213,74,.3),rgba(255,255,255,.08) 44%,transparent 72%); }
+
+/* Nexon typography system */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+.hero-statement,
+.contact-finish-copy h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.hero-eyebrow,
+.checkpoint-label,
+.checkpoint-sign h2,
+.qna-label,
+.qna-header h2,
+.qna-question,
+.qna-number,
+.qna-answer-badge,
+.shop-player-info h3,
+.shop-character-code,
+.shop-player-tags,
+.shop-toolbar-entry p,
+.shop-toolbar-entry h2,
+.shop-index-hud,
+.shop-card-category,
+.shop-preview-copy h3,
+.shop-card-footer strong,
+.portfolio-viewer-header,
+.portfolio-modal-close,
+.portfolio-slide-number,
+.portfolio-slide-cover-copy h3,
+.portfolio-slide-heading h3,
+.portfolio-slide-process-flow strong,
+.portfolio-slide-output-list strong,
+.ai-portfolio-header p,
+.ai-portfolio-header h2,
+.ai-category-tabs button,
+.ai-card-recommend,
+.ai-card-number,
+.ai-card-copy h3,
+.ai-card-view,
+.ai-rail-controls button,
+.ai-project-modal header h2,
+.ai-project-modal header button,
+.ai-modal-detail-grid dt,
+.contact-result-title,
+.contact-result-card dt,
+.contact-mail-cta {
+  font-family: var(--font-title);
+  font-weight: 700;
+}
+
+.hero-introduction,
+.checkpoint-copy,
+.qna-description,
+.qna-answer p,
+.shop-player-info p,
+.shop-card-summary,
+.shop-card-footer span,
+.portfolio-slide-cover-copy p,
+.portfolio-slide-cover-copy span,
+.portfolio-slide-overview-grid,
+.portfolio-slide-role,
+.portfolio-slide-closing,
+.ai-portfolio-header > div > span,
+.ai-card-copy > span,
+.ai-card-meta,
+.ai-modal-hero,
+.ai-modal-detail-grid dd,
+.contact-finish-copy > span,
+.contact-result-card dd {
+  font-family: var(--font-body);
+  font-weight: 400;
+}
 
 @media (min-width: 901px) and (min-height: 760px) {
   .checkpoint-bridge {
