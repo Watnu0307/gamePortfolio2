@@ -267,6 +267,9 @@ body {
 
 .hero-introduction {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   margin-top: .18em;
   font-size: 1.08em;
 }
@@ -2122,7 +2125,7 @@ body {
 .contact-podium-step span { margin-top: 1rem; font-size: clamp(1.4rem,2.5vw,2.6rem); font-weight: 950; }
 .contact-podium-second { width: 28%; height: 8.5rem; border-radius: 22px 0 0 0; }
 .contact-podium-first { position: relative; width: 38%; height: 12rem; border-color: rgba(255,229,115,.9); border-radius: 26px 26px 0 0; background: linear-gradient(180deg,#2b91f2,#0a62c2); }
-.contact-podium-first::before { content: "WINNER"; position: absolute; top: -.9rem; padding: .36rem .75rem; border-radius: 999px; color: #534100; background: #ffd54a; font-size: .58rem; font-weight: 950; letter-spacing: .13em; box-shadow: 0 8px 20px rgba(100,74,0,.2); }
+.contact-podium-first::before { content: "APPLICANT"; position: absolute; top: -.9rem; padding: .36rem .75rem; border-radius: 999px; color: #534100; background: #ffd54a; font-size: .58rem; font-weight: 950; letter-spacing: .13em; box-shadow: 0 8px 20px rgba(100,74,0,.2); }
 .contact-podium-first svg { width: 1.4rem; color: #ffd54a; }
 .contact-podium-third { width: 26%; height: 6.5rem; border-radius: 0 22px 0 0; }
 

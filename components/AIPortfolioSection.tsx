@@ -41,11 +41,11 @@ const aiPortfolioData: AIProject[] = [
     period: "2026.09",
     tools: ["ChatGPT", "Image Generation"],
     category: "IMAGE",
-    purpose: "포트폴리오의 레이싱 콘셉트를 한눈에 전달하는 전용 캐릭터 에셋 제작",
+    purpose: "게임 업계 지원자의 개성과 포트폴리오 분위기를 전달하는 전용 캐릭터 에셋 제작",
     process: "캐릭터 방향 정의 → 프롬프트 설계 → 결과 비교 → 색상과 구도 보정",
     myRole: "콘셉트, 포즈, 컬러 기준을 정하고 결과물을 선별해 웹 레이아웃에 맞게 배치했습니다.",
     aiRole: "초기 캐릭터 시안 생성과 컬러 베리에이션 제작에 활용했습니다.",
-    result: "Landing과 Portfolio Shop에 사용하는 일관된 캐릭터 비주얼을 완성했습니다.",
+    result: "Landing과 Portfolio 영역에 사용하는 일관된 캐릭터 비주얼을 완성했습니다.",
   },
   {
     id: "02",
@@ -58,7 +58,7 @@ const aiPortfolioData: AIProject[] = [
     process: "정보 구조 설계 → 섹션별 콘셉트 정의 → 프로토타입 구현 → 반응형 검수",
     myRole: "전체 방향과 콘텐츠 우선순위를 결정하고 반복 검수를 통해 결과를 조정했습니다.",
     aiRole: "UI 대안 제안, 코드 구현, 오류 점검과 반복 수정에 활용했습니다.",
-    result: "레이싱 코스를 따라 탐색하는 세로형 포트폴리오 경험을 구현했습니다.",
+    result: "지원 동기와 프로젝트, AI 활용 경험을 순서대로 탐색하는 세로형 포트폴리오를 구현했습니다.",
   },
   {
     id: "03",
@@ -110,7 +110,7 @@ const aiPortfolioData: AIProject[] = [
     process: "원본 분석 → 수정 범위 지정 → AI 편집 → 디테일 보정 → 웹 최적화",
     myRole: "유지할 요소와 바꿀 요소를 구분하고 최종 품질과 사용 환경을 검수했습니다.",
     aiRole: "캐릭터 포인트 컬러 변경과 배경 분리 작업에 활용했습니다.",
-    result: "블루 UI에서 선명하게 보이는 옐로우 레이싱 에셋을 제작했습니다.",
+    result: "블루 UI에서 선명하게 보이는 옐로우 컬러의 웹 이미지 에셋을 제작했습니다.",
   },
 ];
 
@@ -209,9 +209,9 @@ export function AIPortfolioSection() {
           <div>
             <p><Sparkles aria-hidden="true" /> AI PORTFOLIO</p>
             <h2 id="ai-portfolio-title">AI를 활용한 작업물</h2>
-            <span>작업 과정에서 AI를 어떻게 활용했는지, 결과물과 함께 확인할 수 있습니다.</span>
+            <span>AI를 활용해 기획, 이미지 제작, 문서 정리, 웹 구현 과정에서 작업 효율과 결과물을 개선한 사례를 정리했습니다.</span>
           </div>
-          <div className="ai-shop-badge" aria-hidden="true"><Bot /><span>AI LAB</span></div>
+          <div className="ai-shop-badge" aria-hidden="true"><Bot /><span>AI PORTFOLIO</span></div>
         </header>
 
         <nav className="ai-category-tabs" aria-label="AI 작업물 카테고리">
@@ -258,7 +258,7 @@ export function AIPortfolioSection() {
                   onClick={() => Math.abs(dragRef.current.lastX - dragRef.current.startX) < 6 && setSelected(item)}
                 >
                   <div className="ai-card-visual">
-                    <span className="ai-card-recommend">AI PICK</span>
+                    <span className="ai-card-recommend">PROJECT</span>
                     <span className="ai-card-number">{item.id}</span>
                     <div className="ai-card-icon"><Icon aria-hidden="true" /></div>
                     <div className="ai-card-grid" aria-hidden="true" />
@@ -268,7 +268,7 @@ export function AIPortfolioSection() {
                     <h3>{item.title}</h3>
                     <span>{item.description}</span>
                     <div className="ai-card-meta"><strong>{item.period}</strong><i>{item.tools.join(" · ")}</i></div>
-                    <div className="ai-card-view">VIEW PROJECT <ArrowUpRight aria-hidden="true" /></div>
+                    <div className="ai-card-view">상세 보기 <ArrowUpRight aria-hidden="true" /></div>
                   </div>
                 </button>
               );
@@ -281,9 +281,9 @@ export function AIPortfolioSection() {
         </div>
 
         <div className="ai-rail-footer">
-          <span>DRAG · SWIPE</span>
+          <span>좌우로 이동해 작업물 보기</span>
           <div className="ai-scroll-progress" aria-hidden="true"><i style={{ left: `${progress.left}%`, width: `${progress.width}%` }} /></div>
-          <span>{String(projects.length).padStart(2, "0")} ITEMS</span>
+          <span>{String(projects.length).padStart(2, "0")} PROJECTS</span>
         </div>
       </div>
 

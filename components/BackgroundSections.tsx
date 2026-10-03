@@ -196,10 +196,11 @@ export function LandingBackground() {
         <div className="hero-copy">
           <p className="hero-eyebrow">GAME OPERATIONS PORTFOLIO</p>
           <p className="hero-statement">
-            <span>게임을 즐기는 사람에서,</span>
-            <span>게임을 운영하는 사람으로.</span>
+            <span>게임을 플레이해 온 경험을,</span>
+            <span>운영의 시선으로 확장합니다.</span>
             <span className="hero-introduction">
-              <strong>신입 강승혜</strong>입니다.
+              <span>게임 운영직무 신입 지원자</span>
+              <span><strong>강승혜</strong>입니다.</span>
             </span>
           </p>
         </div>
@@ -215,7 +216,7 @@ export function LandingBackground() {
         </div>
 
         <div className="scroll-indicator" aria-hidden="true">
-          <span>SCROLL TO START</span>
+          <span>SCROLL DOWN</span>
           <span className="scroll-arrow">↓</span>
         </div>
 
@@ -241,21 +242,21 @@ export function NexonBridgeSection() {
 
       <div className="checkpoint-gantry">
         <div className="checkpoint-beam" aria-hidden="true">
-          <span>CHECK POINT</span>
-          <span>02</span>
+          <span>ABOUT</span>
+          <span>01</span>
         </div>
         <article className="checkpoint-sign">
-          <p className="checkpoint-label">NEXT COURSE · NEXON</p>
+          <p className="checkpoint-label">APPLICATION MOTIVATION · NEXON</p>
           <h2 id="why-nexon-title">WHY NEXON?</h2>
           <div className="checkpoint-copy">
             <p>
-              다양한 게임을 즐겨온 플레이어로서,{
+              다양한 장르의 게임을 직접 경험하며{
               " "}
-              게임의 재미를 오래 이어주는 운영의 역할에 관심을 갖게 되었습니다.{
+              플레이어가 서비스를 오래 즐길 수 있게 만드는 운영의 역할에 관심을 갖게 되었습니다.{
               " "}
-              다양한 장르와 서비스를 이어온 넥슨에서{
+              다양한 게임과 서비스를 꾸준히 운영해온 넥슨에서{
               " "}
-              플레이어와 가장 가까운 운영자로 성장하고 싶습니다.
+              유저 경험을 가까이에서 이해하고 운영 실무를 배우고 싶습니다.
             </p>
           </div>
           <div className="checkpoint-progress" aria-hidden="true">
@@ -361,30 +362,30 @@ export function PortfolioBackground() {
                 <i aria-hidden="true" /> AVAILABLE FOR GAME OPERATIONS
               </span>
               <h3>강승혜</h3>
-              <p>신입 게임 운영 지원자 · PLAYER 01</p>
+              <p>게임 운영직무 신입 지원자</p>
             </header>
             <div className="shop-character-panel">
-              <span className="shop-character-code">READY</span>
+              <span className="shop-character-code">APPLICANT</span>
               <img src="/images/shop-character.png" alt="헬멧을 쓴 지원자 캐릭터" />
               <div className="shop-character-pedestal" aria-hidden="true" />
             </div>
             <div className="shop-player-tags" aria-label="지원자 키워드">
-              <span>USER FIRST</span>
-              <span>DETAIL</span>
-              <span>LIVE OPS</span>
+              <span>유저 관점</span>
+              <span>세심한 분석</span>
+              <span>운영 실무</span>
             </div>
           </aside>
 
           <div className="shop-ui-entry">
             <header className="shop-toolbar-entry">
               <div>
-                <p>SELECT YOUR PROJECT</p>
-                <h2>PORTFOLIO SHOP</h2>
+                <p>GAME OPERATIONS PROJECTS</p>
+                <h2>PORTFOLIO</h2>
               </div>
               <aside className="shop-index-hud" aria-label="포트폴리오 프로젝트 안내">
-                <div><span>PROJECT INDEX</span><strong>05</strong></div>
-                <div><span>MAIN FOCUS</span><strong>LIVE OPS</strong></div>
-                <div><span>VIEW MODE</span><strong>PPT SLIDES</strong></div>
+                <div><span>PROJECTS</span><strong>05</strong></div>
+                <div><span>FOCUS</span><strong>GAME OPERATIONS</strong></div>
+                <div><span>FORMAT</span><strong>PPT SLIDES</strong></div>
               </aside>
             </header>
 
@@ -422,7 +423,7 @@ export function PortfolioBackground() {
               ))}
               <div className="shop-empty-slot" aria-label="다음 프로젝트를 위한 빈 슬롯">
                 <span>+</span>
-                <small>NEXT SLOT</small>
+                <small>MORE PROJECTS</small>
               </div>
             </div>
           </div>
@@ -449,7 +450,7 @@ export function PortfolioBackground() {
                   <span>PROJECT {selectedItem.number}</span>
                   <h2 id="portfolio-modal-title">{selectedItem.title}</h2>
                 </div>
-                <p>PPT PORTFOLIO · 아래로 스크롤해서 확인하세요</p>
+                <p>PROJECT PRESENTATION · 아래로 스크롤해 확인하세요</p>
                 <button
                   type="button"
                   className="portfolio-modal-close"
@@ -520,12 +521,12 @@ export function PortfolioBackground() {
                       </div>
                     ))}
                   </div>
-                  <p className="portfolio-slide-closing">THANK YOU FOR VIEWING</p>
+                  <p className="portfolio-slide-closing">포트폴리오를 확인해주셔서 감사합니다.</p>
                   <footer>KANG SEUNG HYE · GAME OPERATIONS PORTFOLIO</footer>
                 </article>
 
                 <div className="portfolio-slide-end" aria-hidden="true">
-                  <span>END OF PORTFOLIO</span>
+                  <span>프로젝트 소개가 끝났습니다.</span>
                 </div>
               </div>
             </section>
@@ -565,20 +566,20 @@ export function ContactBackground() {
 
       <div className="contact-finish-shell">
         <header className="contact-finish-copy">
-          <p><Trophy aria-hidden="true" /> RACE FINISH · CONTACT</p>
+          <p><Trophy aria-hidden="true" /> CONTACT · GAME OPERATIONS</p>
           <h2 id="contact-title">
-            완주했습니다.<br />
-            이제 함께 달릴 준비가 되었습니다.
+            끝까지 봐주셔서 감사합니다.<br />
+            게임 운영자로 성장할 기회를 기다리고 있습니다.
           </h2>
-          <span>READY FOR THE NEXT RACE</span>
+          <span>GAME OPERATIONS APPLICANT · KANG SEUNG HYE</span>
         </header>
 
-        <div className="contact-ceremony" aria-label="레이스 완주 시상대">
+        <div className="contact-ceremony" aria-label="지원자 연락처 안내">
           <div className="contact-winner-halo" aria-hidden="true" />
           <img
             className="contact-winner-character"
             src="/images/shop-character.png"
-            alt="노란 레이싱 슈트와 카트로 완주한 강승혜 캐릭터"
+            alt="노란색 의상과 카트로 표현한 강승혜 캐릭터"
           />
           <div className="contact-podium" aria-hidden="true">
             <div className="contact-podium-step contact-podium-second"><span>2</span></div>
@@ -589,8 +590,8 @@ export function ContactBackground() {
 
         <aside className="contact-result-card" aria-label="강승혜 연락처">
           <div className="contact-result-title">
-            <span>FINAL RESULT</span>
-            <strong>PLAYER 01</strong>
+            <span>CONTACT INFORMATION</span>
+            <strong>APPLICANT</strong>
           </div>
           <dl>
             <div>
@@ -609,7 +610,7 @@ export function ContactBackground() {
           <a className="contact-mail-cta" href="mailto:seunghye@email.com">
             메일 보내기 <ArrowUpRight aria-hidden="true" />
           </a>
-          <p>함께 달릴 다음 레이스를 기다립니다.</p>
+          <p>게임 운영직무 신입 지원자 강승혜입니다.</p>
         </aside>
       </div>
     </section>
