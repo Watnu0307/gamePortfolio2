@@ -2190,12 +2190,16 @@ body {
 
 .ai-portfolio-section {
   color: #fff;
-  background: linear-gradient(180deg,#fff 0%,#e9f3ff 7%,#5da7f5 15%,#1278e8 25%,#1278e8 76%,#5da7f5 88%,#e9f3ff 96%,#fff 100%) !important;
+  background: linear-gradient(180deg,#fff 0%,#e9f3ff 3%,#5da7f5 7%,#1278e8 13%,#1278e8 78%,#5da7f5 89%,#e9f3ff 96%,#fff 100%) !important;
 }
 .ai-scene-hold {
   background: transparent;
 }
-.ai-portfolio-header > div > span { color: rgba(255,255,255,.82); }
+.ai-portfolio-shell { padding-top: clamp(2.5rem,5vh,4.5rem); }
+.ai-portfolio-header p,
+.ai-portfolio-header h2,
+.ai-portfolio-header > div > span { text-shadow: 0 2px 18px rgba(5,63,130,.22); }
+.ai-portfolio-header > div > span { color: rgba(255,255,255,.9); }
 .ai-category-tabs { border-color: rgba(255,255,255,.52); background: rgba(255,255,255,.18); box-shadow: 0 14px 34px rgba(5,63,130,.16); backdrop-filter: blur(12px); }
 .ai-category-tabs button { color: rgba(255,255,255,.86); }
 .ai-category-tabs button[aria-pressed="true"] { color: #fff; background: #1278e8; }
