@@ -19,7 +19,7 @@ const otherExperience = [
   {
     title: "STEAM",
     summary: "100시간 이상 플레이 게임 10종",
-    games: ["데이브 더 다이버", "루마섬", "돈스타브 투게더", "팰월드", "스타듀밸리", "호그와트 레거시", "발헤임", "로스트아크", "포더킹", "리썰 컴퍼니"],
+    games: ["데이브 더 다이버", "루마섬", "돈스타브 투게더", "팰월드", "스타듀밸리", "호그와트 레거시", "발헤임", "포더킹", "리썰 컴퍼니"],
   },
   {
     title: "NINTENDO",
@@ -28,12 +28,10 @@ const otherExperience = [
   },
   {
     title: "PC ONLINE",
-    summary: "오랫동안 즐겨온 온라인 게임",
+    summary: "PC 온라인 게임 플레이 경험",
     games: ["라테일", "메이플스토리", "테일즈런너", "엘리샤", "테라", "그랜드체이스"],
   },
 ];
-
-const genres = ["MMORPG", "RPG", "ACTION", "FPS / TPS", "SIMULATION", "CASUAL", "SURVIVAL", "INDIE", "ONLINE", "CONSOLE", "MOBILE"];
 
 const maxHours = Math.max(...gameExperience.map((game) => game.hours ?? 0));
 const summaryStats = [
@@ -103,14 +101,6 @@ export function GameExperienceSection() {
               ))}
             </div>
           </section>
-
-          <aside className="experience-map" aria-labelledby="genre-map-title">
-            <div className="experience-block-heading">
-              <span>GENRE MAP</span>
-              <h3 id="genre-map-title">경험한 장르와 플랫폼</h3>
-            </div>
-            <div>{genres.map((genre) => <span key={genre}>{genre}</span>)}</div>
-          </aside>
         </div>
       </div>
     </section>
