@@ -13,23 +13,27 @@ const gameExperience: GameExperience[] = [
   { title: "에픽세븐", genre: "턴제 RPG", platform: "MOBILE", period: "2025.10 – 2026.02", hours: 67.5 },
   { title: "승리의 여신: 니케", genre: "FPS / TPS", platform: "MOBILE", period: "2023.05 – 2023.12" },
   { title: "로드오브다이스", genre: "보드 액션 RPG", platform: "MOBILE", period: "2017.03 – 2019.02" },
+  { title: "제우스: 오만의 신", genre: "RPG", platform: "MOBILE", period: "플레이 경험 기록" },
 ];
 
 const otherExperience = [
   {
     title: "STEAM",
-    summary: "100시간 이상 플레이 게임 10종",
-    games: ["데이브 더 다이버", "루마섬", "돈스타브 투게더", "팰월드", "스타듀밸리", "호그와트 레거시", "발헤임", "포더킹", "리썰 컴퍼니"],
+    summary: "스팀 소유 게임 60+ · 100시간 이상 플레이 게임 10종",
+    games: [["데이브 더 다이버", "루마섬", "돈스타브 투게더", "팰월드", "스타듀밸리", "호그와트 레거시", "발헤임", "포더킹", "리썰 컴퍼니"]],
   },
   {
     title: "NINTENDO",
     summary: "다양한 Nintendo 타이틀 플레이 경험",
-    games: ["모여봐요 동물의 숲", "포켓몬스터", "젤다의 전설", "마리오 시리즈"],
+    games: [["모여봐요 동물의 숲", "포켓몬스터 시리즈", "젤다의 전설 시리즈", "마리오 시리즈", "리틀 나이트메어 시리즈", "프린세스 메이커 시리즈"]],
   },
   {
     title: "PC ONLINE",
     summary: "PC 온라인 게임 플레이 경험",
-    games: ["라테일", "메이플스토리", "테일즈런너", "엘리샤", "테라", "그랜드체이스"],
+    games: [
+      ["바람의나라", "메이플스토리", "마비노기", "귀혼", "라테일", "마비노기 영웅전", "테라", "아키에이지", "메이플스토리2"],
+      ["테일즈런너", "엘리샤", "하트비트", "오디션"],
+    ],
   },
 ];
 
@@ -90,7 +94,7 @@ export function GameExperienceSection() {
               {otherExperience.map((group) => (
                 <article key={group.title}>
                   <header><strong>{group.title}</strong><span>{group.summary}</span></header>
-                  <p>{group.games.join(" · ")}</p>
+                  {group.games.map((games, index) => <p key={`${group.title}-${index}`}>{games.join(" · ")}</p>)}
                 </article>
               ))}
             </div>
