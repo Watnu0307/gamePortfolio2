@@ -154,12 +154,12 @@ body {
 .section-transition-landing-bridge .transition-background-from { background: linear-gradient(180deg,#fff,#eef8ff 44%,#fff); }
 .section-transition-landing-bridge .transition-background-to { background: radial-gradient(ellipse at 50% 70%,rgba(18,120,232,.08),transparent 60%),#fff; }
 
-.section-transition-bridge-qna { --transition-from: #fff; --transition-to: #fff; height: clamp(320px,50vh,540px); }
+.section-transition-bridge-qna { --transition-from: #fff; --transition-to: #fff; height: clamp(90px,14vh,150px); }
 .section-transition-bridge-qna { background: linear-gradient(180deg,#fff,#f8fbff); }
 .section-transition-bridge-qna .transition-background-from { background: #fff; }
 .section-transition-bridge-qna .transition-background-to { background: radial-gradient(circle at 82% 70%,rgba(18,120,232,.09),transparent 30%),linear-gradient(180deg,#fff,#f8fbff); }
 
-.section-transition-qna-portfolio { --transition-from: #fff; --transition-to: #fff; height: clamp(380px,60vh,660px); }
+.section-transition-qna-portfolio { --transition-from: #fff; --transition-to: #fff; height: clamp(110px,18vh,190px); }
 .section-transition-qna-portfolio { background: linear-gradient(180deg,#fff 0%,#fbfdff 56%,#fff 100%); }
 .section-transition-qna-portfolio .transition-background-from { background: linear-gradient(180deg,#fff,#fafcff); }
 .section-transition-qna-portfolio .transition-background-to {
@@ -1125,6 +1125,7 @@ body {
   position: relative;
   z-index: 3;
   padding: 0 .4rem 1.15rem;
+  text-align: center;
 }
 
 .shop-player-status {
@@ -2117,10 +2118,10 @@ body {
   transform: none;
 }
 
-.contact-finish-copy { align-self: start; margin-top: 8vh; color: #fff; text-shadow: 0 4px 22px rgba(4,47,92,.24); }
+.contact-finish-copy { align-self: start; margin-top: 8vh; margin-left: clamp(4rem,6vw,7rem); color: #fff; text-shadow: 0 4px 22px rgba(4,47,92,.24); }
 .contact-finish-copy p { display: flex; align-items: center; gap: .65rem; margin: 0 0 1.2rem; color: #ffd54a; font-size: .78rem; font-weight: 950; letter-spacing: .15em; }
 .contact-finish-copy p svg { width: 1.1rem; }
-.contact-finish-copy h2 { margin: 0; font-size: clamp(1.7rem,1.9vw,2rem); font-weight: 950; letter-spacing: -.055em; line-height: 1.35; }
+.contact-finish-copy h2 { margin: 0; font-size: clamp(2.25rem,2.65vw,2.65rem); font-weight: 950; letter-spacing: -.055em; line-height: 1.25; }
 .contact-finish-copy h2 span { display: block; white-space: nowrap; }
 .contact-finish-copy span { display: block; margin-top: 1.5rem; color: rgba(255,255,255,.78); font-size: .78rem; font-weight: 900; letter-spacing: .18em; }
 
@@ -2243,7 +2244,7 @@ body {
 
 @media (min-width: 901px) and (min-height: 760px) {
   .checkpoint-bridge {
-    min-height: 108vh;
+    min-height: 88vh;
   }
 
   .checkpoint-scene-hold,
@@ -2257,7 +2258,7 @@ body {
 
   .qna-section {
     padding-top: clamp(7rem,9vw,10rem);
-    padding-bottom: clamp(9rem,11vw,13rem);
+    padding-bottom: clamp(4.5rem,6vw,7rem);
   }
 
   .ai-portfolio-section {
@@ -2370,7 +2371,7 @@ body {
     min-height: 0;
     padding: 8rem 5vw 7rem;
   }
-  .contact-finish-copy { margin-top: 0; text-align: center; }
+  .contact-finish-copy { margin-top: 0; margin-left: 0; text-align: center; }
   .contact-finish-copy p { justify-content: center; }
   .contact-ceremony { min-height: 620px; }
   .contact-winner-character { width: min(78vw,540px); }

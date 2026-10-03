@@ -49,9 +49,9 @@ export function QnAHeader() {
           <MessageCircleQuestion aria-hidden="true" />
           Q&amp;A
         </p>
-        <h2 id="qna-title">지원자 미리보기</h2>
+        <h2 id="qna-title">게임 운영 지원자 Q&amp;A</h2>
         <p className="qna-description">
-          자주 묻는 질문처럼, 저를 짧게 소개합니다.
+          질문과 답변으로 저의 경험과 운영 관점을 소개합니다.
         </p>
       </div>
 
