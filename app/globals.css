@@ -2029,7 +2029,7 @@ body {
 
 .contact-background {
   z-index: 2;
-  min-height: 150vh;
+  min-height: 100vh;
   margin-top: 0;
   background: #78cffe;
   border-radius: 0;
@@ -2053,8 +2053,8 @@ body {
 .contact-image {
   position: absolute;
   inset: -3%;
-  background: url("/images/contact-finish-background.png") center center / cover no-repeat;
-  transform: scale(calc(1.07 - var(--progress) * .035)) translateY(calc(var(--progress) * -1.5%));
+  background: url("/images/contact-finish-background.png") center 68% / cover no-repeat;
+  transform: scale(1.03);
   transform-origin: center 60%;
 }
 
@@ -2095,9 +2095,8 @@ body {
 .contact-confetti i:nth-child(8) { left: 94%; background: #fff; animation-delay: -1s; }
 
 .contact-finish-shell {
-  position: sticky;
+  position: relative;
   z-index: 7;
-  top: 0;
   display: grid;
   grid-template-columns: minmax(260px,.9fr) minmax(360px,1.05fr) minmax(300px,.9fr);
   align-items: center;
@@ -2106,9 +2105,8 @@ body {
   min-height: 100vh;
   margin: 0 auto;
   padding: clamp(6rem,9vh,9rem) 0 clamp(4rem,7vh,7rem);
-  opacity: var(--section-reveal);
-  transform: translateY(calc((1 - var(--section-reveal)) * 26px));
-  will-change: opacity,transform;
+  opacity: 1;
+  transform: none;
 }
 
 .contact-finish-copy { align-self: start; margin-top: 8vh; color: #fff; text-shadow: 0 4px 22px rgba(4,47,92,.24); }
@@ -2197,6 +2195,16 @@ body {
 .contact-finish-copy span { color: #607086; }
 .contact-result-card { border-color: #dce7f5; box-shadow: 0 28px 70px rgba(31,74,122,.15),inset 0 1px 0 #fff; }
 .contact-atmosphere { display: block; background: linear-gradient(90deg,rgba(255,255,255,.62) 0%,rgba(255,255,255,.16) 38%,transparent 62%),linear-gradient(180deg,rgba(255,255,255,.12),transparent 58%,rgba(2,42,86,.08)); }
+.contact-background::before {
+  display: block !important;
+  z-index: 4;
+  height: clamp(150px,24vh,250px);
+  background: linear-gradient(180deg,#fff 0%,rgba(255,255,255,.96) 18%,rgba(255,255,255,.68) 50%,rgba(255,255,255,.2) 80%,transparent 100%);
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  -webkit-mask-image: linear-gradient(180deg,#000 0 52%,transparent 100%);
+  mask-image: linear-gradient(180deg,#000 0 52%,transparent 100%);
+}
 .contact-winner-halo { background: radial-gradient(circle,rgba(255,213,74,.3),rgba(255,255,255,.08) 44%,transparent 72%); }
 
 @media (max-width: 900px) {
