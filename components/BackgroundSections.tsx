@@ -243,12 +243,12 @@ export function NexonBridgeSection() {
 
         <div className="checkpoint-gantry">
           <div className="checkpoint-beam" aria-hidden="true">
-            <span>ABOUT</span>
-            <span>01</span>
+            <span>지원 동기</span>
+            <span>넥슨</span>
           </div>
           <article className="checkpoint-sign">
-            <p className="checkpoint-label">APPLICATION MOTIVATION · NEXON</p>
-            <h2 id="why-nexon-title">WHY NEXON?</h2>
+            <p className="checkpoint-label">게임 운영 직무 지원 동기</p>
+            <h2 id="why-nexon-title">왜 넥슨인가요?</h2>
             <div className="checkpoint-copy">
               <p>
                 다양한 장르의 게임을 직접 경험하며{" "}
@@ -259,8 +259,6 @@ export function NexonBridgeSection() {
             </div>
             <div className="checkpoint-progress" aria-hidden="true"><span /></div>
           </article>
-          <div className="checkpoint-post checkpoint-post-left" aria-hidden="true" />
-          <div className="checkpoint-post checkpoint-post-right" aria-hidden="true" />
         </div>
       </div>
     </section>
@@ -566,8 +564,8 @@ export function ContactBackground() {
         <header className="contact-finish-copy">
           <p><Trophy aria-hidden="true" /> CONTACT · GAME OPERATIONS</p>
           <h2 id="contact-title">
-            끝까지 봐주셔서 감사합니다.<br />
-            게임 운영자로 성장할 기회를 기다리고 있습니다.
+            <span>끝까지 봐주셔서 감사합니다.</span>
+            <span>게임 운영자로 성장할 기회를 기다리고 있습니다.</span>
           </h2>
           <span>GAME OPERATIONS APPLICANT · KANG SEUNG HYE</span>
         </header>
@@ -603,7 +601,6 @@ export function ContactBackground() {
           <a className="contact-mail-cta" href="mailto:seunghye@email.com">
             메일 보내기 <ArrowUpRight aria-hidden="true" />
           </a>
-          <p>게임 운영직무 신입 지원자 강승혜입니다.</p>
         </aside>
         </div>
       </div>

@@ -488,16 +488,15 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 1.25rem;
-  border: 2px solid #17221d;
-  border-radius: 10px 10px 4px 4px;
-  background:
-    linear-gradient(90deg,#1278e8 0 12%,#fff 12% 24%,#17221d 24% 36%,#fff 36% 48%,#1278e8 48% 60%,#fff 60% 72%,#17221d 72% 84%,#fff 84% 100%);
+  border: 0;
+  border-radius: 22px 22px 0 0;
+  background: linear-gradient(135deg,#0b64c8,#1278e8 48%,#3397f4);
   color: #fff;
   font-size: .65rem;
   font-weight: 950;
   letter-spacing: .14em;
-  text-shadow: 0 1px 3px rgba(0,0,0,.65);
-  box-shadow: 0 10px 24px rgba(14,39,29,.15);
+  text-shadow: 0 1px 3px rgba(0,39,86,.35);
+  box-shadow: 0 14px 30px rgba(18,120,232,.2);
 }
 
 .checkpoint-sign {
@@ -505,13 +504,13 @@ body {
   z-index: 2;
   margin: 0 clamp(1rem,3vw,3.5rem);
   padding: clamp(1.6rem,2.7vw,2.7rem) clamp(1.5rem,4vw,4.4rem) clamp(1.45rem,2.4vw,2.35rem);
-  border: 2px solid #17221d;
+  border: 1px solid rgba(18,120,232,.22);
   border-top: 0;
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 28px 28px;
   background:
     linear-gradient(135deg,rgba(18,120,232,.08),transparent 34%),
     rgba(255,255,255,.94);
-  box-shadow: 0 28px 70px rgba(9,44,29,.18),inset 0 1px 0 #fff;
+  box-shadow: 0 28px 70px rgba(18,86,160,.16),inset 0 1px 0 #fff;
   text-align: center;
 }
 
@@ -519,10 +518,12 @@ body {
 .checkpoint-sign::after {
   content: "";
   position: absolute;
-  top: -2px;
-  width: 3rem;
-  height: 7px;
-  background: #1278e8;
+  top: auto;
+  bottom: -18px;
+  width: 34px;
+  height: 36px;
+  background: #0b64c8;
+  clip-path: polygon(0 0,100% 0,100% 100%,50% 72%,0 100%);
 }
 
 .checkpoint-sign::before { left: 0; }
@@ -1943,9 +1944,8 @@ body {
 .ai-portfolio-header h2 { margin: 0; font-size: clamp(2.65rem,5vw,5.4rem); font-weight: 950; letter-spacing: -.065em; line-height: .98; }
 .ai-portfolio-header > div > span { display: block; margin-top: 1.25rem; color: rgba(255,255,255,.78); font-size: clamp(.95rem,1.2vw,1.12rem); line-height: 1.7; }
 
-.ai-shop-badge { display: grid; flex: 0 0 auto; width: 116px; height: 116px; place-items: center; border: 1px solid rgba(255,255,255,.28); border-radius: 30px; color: #1278e8; background: #fff; box-shadow: 0 20px 50px rgba(3,45,96,.22); transform: rotate(3deg); }
-.ai-shop-badge svg { width: 2.4rem; height: 2.4rem; }
-.ai-shop-badge span { margin-top: -1rem; font-size: .68rem; font-weight: 950; letter-spacing: .14em; }
+.ai-shop-badge { display: grid; flex: 0 0 auto; width: clamp(150px,13vw,210px); place-items: center; filter: drop-shadow(0 22px 24px rgba(2,48,106,.28)); transform: rotate(3deg); }
+.ai-shop-badge img { display: block; width: 100%; height: auto; object-fit: contain; }
 
 .ai-category-tabs { display: flex; gap: .45rem; margin: clamp(2.3rem,4vw,3.8rem) clamp(1.25rem,5vw,5rem) 1.3rem; padding: .45rem; overflow-x: auto; border: 1px solid rgba(255,255,255,.18); border-radius: 18px; background: rgba(8,67,137,.42); scrollbar-width: none; }
 .ai-category-tabs::-webkit-scrollbar { display: none; }
@@ -2120,7 +2120,8 @@ body {
 .contact-finish-copy { align-self: start; margin-top: 8vh; color: #fff; text-shadow: 0 4px 22px rgba(4,47,92,.24); }
 .contact-finish-copy p { display: flex; align-items: center; gap: .65rem; margin: 0 0 1.2rem; color: #ffd54a; font-size: .78rem; font-weight: 950; letter-spacing: .15em; }
 .contact-finish-copy p svg { width: 1.1rem; }
-.contact-finish-copy h2 { margin: 0; font-size: clamp(2.4rem,3.1vw,3.8rem); font-weight: 950; letter-spacing: -.06em; line-height: 1.1; }
+.contact-finish-copy h2 { margin: 0; font-size: clamp(1.7rem,1.9vw,2rem); font-weight: 950; letter-spacing: -.055em; line-height: 1.35; }
+.contact-finish-copy h2 span { display: block; white-space: nowrap; }
 .contact-finish-copy span { display: block; margin-top: 1.5rem; color: rgba(255,255,255,.78); font-size: .78rem; font-weight: 900; letter-spacing: .18em; }
 
 .contact-ceremony { position: relative; align-self: end; display: grid; min-height: 72vh; place-items: end center; }
@@ -2242,7 +2243,7 @@ body {
 
 @media (min-width: 901px) and (min-height: 760px) {
   .checkpoint-bridge {
-    min-height: 155vh;
+    min-height: 108vh;
   }
 
   .checkpoint-scene-hold,
