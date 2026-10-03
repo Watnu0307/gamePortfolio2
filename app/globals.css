@@ -2053,7 +2053,7 @@ body {
 .contact-image {
   position: absolute;
   inset: -3%;
-  background: url("/images/racing-final.png") center center / cover no-repeat;
+  background: url("/images/contact-finish-background.png") center center / cover no-repeat;
   transform: scale(calc(1.07 - var(--progress) * .035)) translateY(calc(var(--progress) * -1.5%));
   transform-origin: center 60%;
 }
@@ -2118,16 +2118,8 @@ body {
 .contact-finish-copy span { display: block; margin-top: 1.5rem; color: rgba(255,255,255,.78); font-size: .78rem; font-weight: 900; letter-spacing: .18em; }
 
 .contact-ceremony { position: relative; align-self: end; display: grid; min-height: 72vh; place-items: end center; }
-.contact-winner-halo { position: absolute; left: 50%; bottom: 14%; width: min(38vw,560px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle,rgba(255,222,89,.4),rgba(255,255,255,.12) 42%,transparent 70%); filter: blur(10px); transform: translateX(-50%); animation: contact-halo 3.5s ease-in-out infinite; }
-.contact-winner-character { position: absolute; z-index: 3; left: 50%; bottom: 15%; width: min(38vw,560px); max-height: 70vh; object-fit: contain; transform: translateX(-50%); transform-origin: center bottom; filter: drop-shadow(0 24px 30px rgba(3,38,75,.28)); animation: contact-winner-float 4s ease-in-out infinite; user-select: none; }
-.contact-podium { position: relative; z-index: 4; display: flex; align-items: flex-end; justify-content: center; width: min(42vw,620px); filter: drop-shadow(0 26px 34px rgba(2,41,83,.26)); }
-.contact-podium-step { display: grid; place-items: start center; border: 2px solid rgba(255,255,255,.68); border-bottom: 0; color: #fff; background: linear-gradient(180deg,rgba(37,134,234,.94),rgba(7,87,180,.96)); box-shadow: inset 0 1px 0 rgba(255,255,255,.5); }
-.contact-podium-step span { margin-top: 1rem; font-size: clamp(1.4rem,2.5vw,2.6rem); font-weight: 950; }
-.contact-podium-second { width: 28%; height: 8.5rem; border-radius: 22px 0 0 0; }
-.contact-podium-first { position: relative; width: 38%; height: 12rem; border-color: rgba(255,229,115,.9); border-radius: 26px 26px 0 0; background: linear-gradient(180deg,#2b91f2,#0a62c2); }
-.contact-podium-first::before { content: "APPLICANT"; position: absolute; top: -.9rem; padding: .36rem .75rem; border-radius: 999px; color: #534100; background: #ffd54a; font-size: .58rem; font-weight: 950; letter-spacing: .13em; box-shadow: 0 8px 20px rgba(100,74,0,.2); }
-.contact-podium-first svg { width: 1.4rem; color: #ffd54a; }
-.contact-podium-third { width: 26%; height: 6.5rem; border-radius: 0 22px 0 0; }
+.contact-winner-halo { position: absolute; left: 53%; bottom: 4%; width: min(34vw,500px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle,rgba(255,222,89,.34),rgba(255,255,255,.1) 42%,transparent 70%); filter: blur(10px); transform: translateX(-50%); animation: contact-halo 3.5s ease-in-out infinite; }
+.contact-winner-character { position: absolute; z-index: 3; left: 53%; bottom: 3%; width: min(33vw,500px); max-height: 75vh; object-fit: contain; transform: translateX(-50%); transform-origin: center bottom; filter: drop-shadow(0 22px 28px rgba(3,38,75,.3)); animation: contact-winner-float 4s ease-in-out infinite; user-select: none; }
 
 .contact-result-card { align-self: center; padding: 1.45rem; border: 1px solid rgba(255,255,255,.62); border-radius: 28px; color: #172b46; background: rgba(255,255,255,.84); box-shadow: 0 28px 70px rgba(0,46,99,.22),inset 0 1px 0 #fff; backdrop-filter: blur(18px); }
 .contact-result-title { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(18,120,232,.14); }
@@ -2184,8 +2176,6 @@ body {
 .ai-portfolio-section::before,
 .ai-portfolio-section::after,
 .ai-shop-orb,
-.contact-image,
-.contact-atmosphere,
 .contact-spotlight,
 .contact-confetti,
 .contact-background::before {
@@ -2206,7 +2196,8 @@ body {
 .contact-finish-copy p { color: #1278e8; }
 .contact-finish-copy span { color: #607086; }
 .contact-result-card { border-color: #dce7f5; box-shadow: 0 28px 70px rgba(31,74,122,.15),inset 0 1px 0 #fff; }
-.contact-winner-halo { background: radial-gradient(circle,rgba(255,213,74,.32),rgba(18,120,232,.06) 44%,transparent 72%); }
+.contact-atmosphere { display: block; background: linear-gradient(90deg,rgba(255,255,255,.62) 0%,rgba(255,255,255,.16) 38%,transparent 62%),linear-gradient(180deg,rgba(255,255,255,.12),transparent 58%,rgba(2,42,86,.08)); }
+.contact-winner-halo { background: radial-gradient(circle,rgba(255,213,74,.3),rgba(255,255,255,.08) 44%,transparent 72%); }
 
 @media (max-width: 900px) {
   .background-section { min-height: 108vh; }

@@ -578,14 +578,9 @@ export function ContactBackground() {
           <div className="contact-winner-halo" aria-hidden="true" />
           <img
             className="contact-winner-character"
-            src="/images/shop-character.png"
-            alt="노란색 의상과 카트로 표현한 강승혜 캐릭터"
+            src="/images/contact-flag-character.png"
+            alt="체커 깃발을 들고 있는 강승혜 캐릭터"
           />
-          <div className="contact-podium" aria-hidden="true">
-            <div className="contact-podium-step contact-podium-second"><span>2</span></div>
-            <div className="contact-podium-step contact-podium-first"><span>1</span><Trophy /></div>
-            <div className="contact-podium-step contact-podium-third"><span>3</span></div>
-          </div>
         </div>
 
         <aside className="contact-result-card" aria-label="강승혜 연락처">
