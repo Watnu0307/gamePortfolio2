@@ -2282,7 +2282,7 @@ body {
   transform: none;
 }
 
-.contact-finish-copy { position: relative; z-index: 10; align-self: start; width: min(51vw,680px); margin-top: 8vh; margin-left: clamp(7rem,12vw,12rem); color: #fff; text-shadow: 0 3px 3px rgba(4,38,75,.7),0 8px 28px rgba(4,38,75,.45); }
+.contact-finish-copy { position: relative; z-index: 10; align-self: start; width: min(51vw,680px); margin-top: 15vh; margin-left: clamp(3.5rem,6.5vw,7rem); color: #fff; text-shadow: 0 3px 3px rgba(4,38,75,.7),0 8px 28px rgba(4,38,75,.45); }
 .contact-finish-copy p { display: flex; align-items: center; gap: .65rem; margin: 0 0 1.2rem; color: #ffd54a; font-size: .78rem; font-weight: 950; letter-spacing: .15em; }
 .contact-finish-copy p svg { width: 1.1rem; }
 .contact-finish-copy h2 { position: relative; z-index: 10; margin: 0; max-width: 100%; color: #fff; font-size: clamp(3.15rem,4vw,4.85rem); font-weight: 950; letter-spacing: -.065em; line-height: 1.08; }
