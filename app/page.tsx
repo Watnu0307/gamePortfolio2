@@ -6,6 +6,7 @@ import {
 } from "@/components/BackgroundSections";
 import { AIPortfolioSection } from "@/components/AIPortfolioSection";
 import { QnASection } from "@/components/QnASection";
+import { GameExperienceSection } from "@/components/GameExperienceSection";
 import { SectionTransition } from "@/components/SectionTransition";
 import { SectionNav } from "@/components/SectionNav";
 
@@ -16,7 +17,9 @@ export default function Home() {
       <LandingBackground />
       <SectionTransition variant="landing-bridge" label="지원 동기 섹션으로 이동" />
       <NexonBridgeSection />
-      <SectionTransition variant="bridge-qna" label="지원자 Q&A로 이동" />
+      <SectionTransition variant="bridge-experience" label="게임 경험 섹션으로 이동" />
+      <GameExperienceSection />
+      <SectionTransition variant="experience-qna" label="지원자 Q&A로 이동" />
       <QnASection />
       <SectionTransition variant="qna-portfolio" label="포트폴리오 프로젝트로 이동" />
       <PortfolioBackground />

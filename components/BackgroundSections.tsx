@@ -361,7 +361,6 @@ export function PortfolioBackground() {
               <p>게임 운영직무 신입 지원자</p>
             </header>
             <div className="shop-character-panel">
-              <span className="shop-character-code">APPLICANT</span>
               <img src="/images/shop-character.png" alt="헬멧을 쓴 지원자 캐릭터" />
               <div className="shop-character-pedestal" aria-hidden="true" />
             </div>
@@ -375,7 +374,6 @@ export function PortfolioBackground() {
           <div className="shop-ui-entry">
             <header className="shop-toolbar-entry">
               <div>
-                <p>GAME OPERATIONS PROJECTS</p>
                 <h2>PORTFOLIO</h2>
               </div>
               <aside className="shop-index-hud" aria-label="포트폴리오 프로젝트 안내">
@@ -566,8 +564,8 @@ export function ContactBackground() {
         <header className="contact-finish-copy">
           <p><Trophy aria-hidden="true" /> CONTACT · GAME OPERATIONS</p>
           <h2 id="contact-title">
-            <span>끝까지 봐주셔서 감사합니다.</span>
-            <span>게임 운영자로 성장할 기회를 기다리고 있습니다.</span>
+            <span>끝까지 봐주셔서 진심으로 감사합니다.</span>
+            <span>최선을 다하겠습니다.</span>
           </h2>
         </header>
 

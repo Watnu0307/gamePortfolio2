@@ -2,7 +2,8 @@
 
 type TransitionVariant =
   | "landing-bridge"
-  | "bridge-qna"
+  | "bridge-experience"
+  | "experience-qna"
   | "qna-portfolio"
   | "portfolio-ai"
   | "ai-contact";

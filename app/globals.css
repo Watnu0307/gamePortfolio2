@@ -108,6 +108,7 @@ body {
 
 #home,
 #why-nexon,
+#game-experience,
 #qna,
 #portfolio,
 #ai-portfolio,
@@ -227,10 +228,13 @@ body {
 .section-transition-landing-bridge .transition-background-from { background: linear-gradient(180deg,#fff,#eef8ff 44%,#fff); }
 .section-transition-landing-bridge .transition-background-to { background: radial-gradient(ellipse at 50% 70%,rgba(18,120,232,.08),transparent 60%),#fff; }
 
-.section-transition-bridge-qna { --transition-from: #fff; --transition-to: #fff; height: clamp(90px,14vh,150px); }
-.section-transition-bridge-qna { background: linear-gradient(180deg,#fff,#f8fbff); }
-.section-transition-bridge-qna .transition-background-from { background: #fff; }
-.section-transition-bridge-qna .transition-background-to { background: radial-gradient(circle at 82% 70%,rgba(18,120,232,.09),transparent 30%),linear-gradient(180deg,#fff,#f8fbff); }
+.section-transition-bridge-experience { --transition-from: #fff; --transition-to: #f7fbff; height: clamp(100px,15vh,160px); background: linear-gradient(180deg,#fff,#f7fbff); }
+.section-transition-bridge-experience .transition-background-from { background: #fff; }
+.section-transition-bridge-experience .transition-background-to { background: radial-gradient(circle at 18% 72%,rgba(18,120,232,.08),transparent 34%),linear-gradient(180deg,#fff,#f7fbff); }
+
+.section-transition-experience-qna { --transition-from: #f7fbff; --transition-to: #fff; height: clamp(100px,15vh,160px); background: linear-gradient(180deg,#f7fbff,#fff); }
+.section-transition-experience-qna .transition-background-from { background: linear-gradient(180deg,#f7fbff,#fbfdff); }
+.section-transition-experience-qna .transition-background-to { background: radial-gradient(circle at 82% 70%,rgba(18,120,232,.07),transparent 30%),#fff; }
 
 .section-transition-qna-portfolio { --transition-from: #fff; --transition-to: #fff; height: clamp(110px,18vh,190px); }
 .section-transition-qna-portfolio { background: linear-gradient(180deg,#fff 0%,#fbfdff 56%,#fff 100%); }
@@ -583,7 +587,7 @@ body {
   padding: clamp(1.6rem,2.7vw,2.7rem) clamp(1.5rem,4vw,4.4rem) clamp(1.45rem,2.4vw,2.35rem);
   border: 1px solid rgba(18,120,232,.22);
   border-top: 0;
-  border-radius: 0 0 28px 28px;
+  border-radius: 0;
   background:
     linear-gradient(135deg,rgba(18,120,232,.08),transparent 34%),
     rgba(255,255,255,.94);
@@ -593,18 +597,20 @@ body {
 
 .checkpoint-sign::before,
 .checkpoint-sign::after {
-  content: "";
-  position: absolute;
-  top: auto;
-  bottom: -18px;
-  width: 34px;
-  height: 36px;
-  background: #0b64c8;
-  clip-path: polygon(0 0,100% 0,100% 100%,50% 72%,0 100%);
+  content: none;
 }
 
-.checkpoint-sign::before { left: 0; }
-.checkpoint-sign::after { right: 0; }
+.checkpoint-sign::after {
+  content: "";
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  bottom: -2.4rem;
+  height: 2.4rem;
+  border-radius: 0 0 22px 22px;
+  background: linear-gradient(135deg,#0b64c8,#1278e8 48%,#3397f4);
+  box-shadow: 0 14px 30px rgba(18,120,232,.2);
+}
 
 .checkpoint-label {
   margin: 0 0 .65rem;
@@ -761,6 +767,72 @@ body {
   transform: translateX(-50%) rotate(-2deg);
   background: radial-gradient(ellipse at 50% 0,rgba(18,120,232,.04),transparent 60%);
 }
+
+.game-experience-section {
+  --section-reveal: 0;
+  position: relative;
+  min-height: 100vh;
+  padding: clamp(7rem,10vw,11rem) 5vw clamp(7rem,10vw,10rem);
+  overflow: clip;
+  background: linear-gradient(180deg,#f7fbff 0%,#fff 18%,#fff 82%,#f8fbff 100%);
+}
+
+.game-experience-section::before {
+  content: "";
+  position: absolute;
+  inset: 5% auto auto 50%;
+  width: min(74vw,1100px);
+  height: 26rem;
+  border-radius: 50%;
+  background: rgba(18,120,232,.055);
+  filter: blur(70px);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.game-experience-shell { position: relative; z-index: 1; width: min(100%,1420px); margin: 0 auto; }
+.game-experience-header { max-width: 900px; opacity: var(--section-reveal); transform: translateY(calc((1 - var(--section-reveal)) * 24px)); transition: opacity .2s linear,transform .2s linear; }
+.game-experience-header > p { margin: 0 0 .85rem; color: #1278e8; font-family: var(--font-title); font-size: .82rem; font-weight: 700; letter-spacing: .17em; }
+.game-experience-header h2 { margin: 0; color: #111; font-family: var(--font-title); font-size: clamp(2.8rem,5vw,5.4rem); font-weight: 700; letter-spacing: -.055em; line-height: 1.03; }
+.game-experience-header > span { display: block; max-width: 760px; margin-top: 1.35rem; color: #5f6d82; font-size: clamp(1rem,1.2vw,1.15rem); line-height: 1.75; }
+
+.experience-stats { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 1rem; margin-top: clamp(3rem,5vw,5rem); }
+.experience-stats article { min-width: 0; padding: clamp(1.4rem,2.3vw,2.2rem); border: 1px solid #dce7f5; border-radius: 24px; background: rgba(255,255,255,.92); box-shadow: 0 16px 42px rgba(36,75,120,.08); opacity: var(--section-reveal); transform: translateY(calc((1 - var(--section-reveal)) * (20px + var(--item-index) * 3px))); transition: border-color .25s ease,box-shadow .25s ease,transform .25s ease; }
+.experience-stats article:hover { border-color: #1278e8; box-shadow: 0 20px 48px rgba(18,120,232,.12); transform: translateY(-4px); }
+.experience-stats strong { display: block; color: #1278e8; font-family: var(--font-title); font-size: clamp(2.4rem,3.6vw,4.2rem); font-weight: 700; letter-spacing: -.06em; line-height: 1; }
+.experience-stats strong.is-compact { font-size: clamp(1.25rem,1.75vw,2rem); letter-spacing: -.035em; line-height: 1.15; }
+.experience-stats span { display: block; margin-top: .85rem; color: #637389; font-size: .85rem; line-height: 1.45; }
+
+.experience-block-heading { margin: clamp(3.8rem,6vw,6rem) 0 1.35rem; }
+.experience-block-heading > span { display: block; margin-bottom: .45rem; color: #1278e8; font-family: var(--font-title); font-size: .68rem; font-weight: 700; letter-spacing: .14em; }
+.experience-block-heading h3 { margin: 0; color: #172b46; font-family: var(--font-title); font-size: clamp(1.7rem,2.5vw,2.6rem); font-weight: 700; letter-spacing: -.04em; }
+
+.experience-game-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.15rem; }
+.experience-game-card { padding: clamp(1.4rem,2vw,2rem); border: 1px solid #dce7f5; border-radius: 24px; background: #fff; box-shadow: 0 16px 42px rgba(36,75,120,.07); opacity: var(--section-reveal); transform: translateY(calc((1 - var(--section-reveal)) * (22px + var(--item-index) * 4px))); transition: transform .25s ease,border-color .25s ease,box-shadow .25s ease; }
+.experience-game-card:hover { border-color: #1278e8; box-shadow: 0 22px 50px rgba(18,120,232,.12); transform: translateY(-4px); }
+.experience-game-card header { display: flex; align-items: center; gap: .8rem; }
+.experience-game-card header > span { color: #b3c5da; font-family: var(--font-title); font-size: 1rem; font-weight: 700; }
+.experience-game-card h4 { margin: 0; color: #172b46; font-family: var(--font-title); font-size: clamp(1.25rem,1.8vw,1.75rem); font-weight: 700; letter-spacing: -.035em; }
+.experience-tags { display: flex; flex-wrap: wrap; gap: .45rem; margin: 1.1rem 0 1.35rem; }
+.experience-tags span,.experience-map > div > span { padding: .43rem .68rem; border: 1px solid #cfe1f7; border-radius: 999px; color: #0a62c2; background: #edf5ff; font-family: var(--font-title); font-size: .66rem; font-weight: 700; letter-spacing: .04em; }
+.experience-game-card dl { display: grid; grid-template-columns: 1.35fr 1fr; gap: 1rem; margin: 0; }
+.experience-game-card dl > div { min-width: 0; }
+.experience-game-card dt { color: #8493a6; font-family: var(--font-title); font-size: .6rem; font-weight: 700; letter-spacing: .11em; }
+.experience-game-card dd { margin: .4rem 0 0; color: #394b62; font-size: .88rem; line-height: 1.45; }
+.experience-time-bar { height: 6px; margin-top: 1.45rem; overflow: hidden; border-radius: 99px; background: #e9f0f8; }
+.experience-time-bar i { display: block; height: 100%; border-radius: inherit; background: #1278e8; transform: scaleX(var(--section-reveal)); transform-origin: left; transition: transform .45s ease; }
+.experience-time-bar.is-period i { opacity: .4; background: repeating-linear-gradient(90deg,#1278e8 0 10px,transparent 10px 16px); }
+
+.experience-lower-grid { display: grid; grid-template-columns: minmax(0,1.6fr) minmax(300px,.8fr); gap: 1.25rem; }
+.experience-other-list { display: grid; gap: .75rem; }
+.experience-other-list article,.experience-map { padding: 1.3rem 1.4rem; border: 1px solid #dce7f5; border-radius: 20px; background: #fff; }
+.experience-other-list header { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.experience-other-list strong { color: #1278e8; font-family: var(--font-title); font-size: .8rem; letter-spacing: .09em; }
+.experience-other-list header span { color: #69798e; font-size: .8rem; }
+.experience-other-list p { margin: .85rem 0 0; color: #42546c; font-size: .84rem; line-height: 1.7; }
+.experience-map { align-self: start; }
+.experience-map .experience-block-heading { margin-top: 0; }
+.experience-map > div { display: flex; flex-wrap: wrap; gap: .55rem; }
 
 .qna-section {
   min-height: auto;
@@ -2218,9 +2290,10 @@ body {
 .contact-finish-copy { position: relative; z-index: 10; align-self: start; width: min(58vw,900px); margin-top: 8vh; margin-left: clamp(4rem,6vw,7rem); color: #fff; text-shadow: 0 4px 22px rgba(4,47,92,.24); }
 .contact-finish-copy p { display: flex; align-items: center; gap: .65rem; margin: 0 0 1.2rem; color: #ffd54a; font-size: .78rem; font-weight: 950; letter-spacing: .15em; }
 .contact-finish-copy p svg { width: 1.1rem; }
-.contact-finish-copy h2 { position: relative; z-index: 10; margin: 0; font-size: clamp(3.15rem,4.1vw,5.25rem); font-weight: 950; letter-spacing: -.055em; line-height: 1.1; }
+.contact-finish-copy h2 { position: relative; z-index: 10; margin: 0; font-size: clamp(3.5rem,4.4vw,5.4rem); font-weight: 950; letter-spacing: -.055em; line-height: 1.08; }
 .contact-finish-copy h2 span { display: block; white-space: nowrap; }
 .contact-finish-copy span { display: block; margin-top: 1.5rem; color: rgba(255,255,255,.78); font-size: .78rem; font-weight: 900; letter-spacing: .18em; }
+.contact-finish-copy h2 span { margin-top: 0; color: inherit; font-size: inherit; font-weight: inherit; letter-spacing: inherit; }
 
 .contact-ceremony { position: relative; z-index: 3; align-self: end; display: grid; min-height: 72vh; place-items: end center; }
 .contact-winner-halo { position: absolute; left: 53%; bottom: 4%; width: min(34vw,500px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle,rgba(255,222,89,.34),rgba(255,255,255,.1) 42%,transparent 70%); filter: blur(10px); transform: translateX(-50%); animation: contact-halo 3.5s ease-in-out infinite; }
@@ -2500,6 +2573,9 @@ textarea {
     min-height: auto;
     padding: 9rem 5vw 12rem;
   }
+  .game-experience-section { padding: 8rem 5vw 9rem; }
+  .experience-stats { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .experience-lower-grid { grid-template-columns: 1fr; }
   .qna-header {
     grid-template-columns: minmax(0,1fr) 150px;
     gap: 1.5rem;
@@ -2557,6 +2633,12 @@ textarea {
 }
 
 @media (max-width: 640px) {
+  .section-nav a { padding-inline: .68rem; }
+  .game-experience-section { padding: 7rem 1rem 8rem; }
+  .game-experience-header h2 { font-size: clamp(2.35rem,11vw,3rem); }
+  .experience-stats,.experience-game-grid { grid-template-columns: 1fr; }
+  .experience-game-card dl { grid-template-columns: 1fr; }
+  .experience-other-list header { align-items: flex-start; flex-direction: column; gap: .35rem; }
   .ai-portfolio-section { min-height: 118vh; margin-top: 0; padding: 10rem 0; }
   .ai-portfolio-header { display: block; }
   .ai-portfolio-header h2 { max-width: 18rem; font-size: clamp(2.15rem,10vw,2.7rem); }
@@ -2576,7 +2658,7 @@ textarea {
   .ai-modal-detail-grid .ai-modal-result { grid-column: auto; }
   .ai-project-modal > footer { align-items: flex-start; flex-direction: column; padding: 0 1rem 1.2rem; }
   .contact-finish-shell { padding: 7rem 1rem 5rem; }
-  .contact-finish-copy h2 { font-size: clamp(2.15rem,10.5vw,3rem); }
+  .contact-finish-copy h2 { font-size: clamp(3rem,13vw,4.25rem); }
   .contact-finish-copy span { font-size: .66rem; }
   .contact-ceremony { min-height: 460px; }
   .contact-winner-character { bottom: 17%; width: min(96vw,450px); }
@@ -2593,7 +2675,7 @@ textarea {
   .checkpoint-sign {
     margin-inline: 0;
     padding: 1.35rem 1.2rem 1.25rem;
-    border-radius: 0 0 15px 15px;
+    border-radius: 0;
   }
   .checkpoint-label { font-size: .56rem; }
   .checkpoint-sign h2 { font-size: clamp(2.25rem,13vw,3.15rem); }
