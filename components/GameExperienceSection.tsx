@@ -65,9 +65,7 @@ export function GameExperienceSection() {
           <h3>대표 플레이 이력</h3>
         </div>
         <div className="experience-game-grid">
-          {gameExperience.map((game, index) => {
-            const width = game.hours ? Math.max(8, (game.hours / maxHours) * 100) : 0;
-            return (
+          {gameExperience.map((game, index) => (
               <article className="experience-game-card" key={game.title} style={{ "--item-index": index } as CSSProperties}>
                 <header>
                   <span>{String(index + 1).padStart(2, "0")}</span>
@@ -78,12 +76,8 @@ export function GameExperienceSection() {
                   <div><dt>PLAY PERIOD</dt><dd>{game.period}</dd></div>
                   <div><dt>PLAY TIME</dt><dd>{game.hours ? `${game.hours.toLocaleString()}시간` : "기간 중심 경험"}</dd></div>
                 </dl>
-                <div className={`experience-time-bar${game.hours ? "" : " is-period"}`} aria-label={game.hours ? `플레이 시간 ${game.hours.toLocaleString()}시간` : "플레이 기간 기록"}>
-                  <i style={{ width: game.hours ? `${width}%` : "100%" }} />
-                </div>
               </article>
-            );
-          })}
+          ))}
         </div>
 
         <div className="experience-lower-grid">
