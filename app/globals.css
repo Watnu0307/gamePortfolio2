@@ -392,6 +392,14 @@ body {
   isolation: isolate;
 }
 
+.checkpoint-scene-hold,
+.qna-scene-hold,
+.ai-scene-hold,
+.contact-scene-hold {
+  position: relative;
+  isolation: isolate;
+}
+
 .checkpoint-bridge::before,
 .checkpoint-bridge::after {
   content: "";
@@ -2205,7 +2213,71 @@ body {
   -webkit-mask-image: linear-gradient(180deg,#000 0 52%,transparent 100%);
   mask-image: linear-gradient(180deg,#000 0 52%,transparent 100%);
 }
+.contact-scene-hold::before {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: clamp(150px,24vh,250px);
+  background: linear-gradient(180deg,#fff 0%,rgba(255,255,255,.96) 18%,rgba(255,255,255,.68) 50%,rgba(255,255,255,.2) 80%,transparent 100%);
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  -webkit-mask-image: linear-gradient(180deg,#000 0 52%,transparent 100%);
+  mask-image: linear-gradient(180deg,#000 0 52%,transparent 100%);
+  pointer-events: none;
+}
 .contact-winner-halo { background: radial-gradient(circle,rgba(255,213,74,.3),rgba(255,255,255,.08) 44%,transparent 72%); }
+
+@media (min-width: 901px) and (min-height: 760px) {
+  .checkpoint-bridge {
+    min-height: 155vh;
+  }
+
+  .checkpoint-scene-hold,
+  .contact-scene-hold {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    min-height: 760px;
+    overflow: hidden;
+  }
+
+  .qna-section {
+    padding-top: clamp(12rem,15vw,17rem);
+    padding-bottom: calc(clamp(14rem,17vw,20rem) + 24vh);
+  }
+
+  .ai-portfolio-section {
+    min-height: 165vh;
+    padding: 0;
+  }
+
+  .ai-scene-hold {
+    position: sticky;
+    top: 0;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    padding: clamp(5rem,8vh,7rem) 0;
+    overflow: hidden;
+  }
+
+  .ai-portfolio-shell {
+    --ai-exit: clamp(0,calc((var(--progress) - .8) * 5),1);
+    opacity: clamp(0,calc(var(--section-reveal) - var(--ai-exit)),1);
+    transform: translateY(calc((1 - var(--section-reveal)) * 52px + var(--ai-exit) * -34px));
+  }
+
+  .contact-background {
+    min-height: 150vh;
+  }
+
+  .contact-background::before {
+    display: none !important;
+  }
+}
 
 @media (max-width: 900px) {
   .background-section { min-height: 108vh; }

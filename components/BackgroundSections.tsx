@@ -233,38 +233,35 @@ export function NexonBridgeSection() {
       data-scroll-scene
       aria-labelledby="why-nexon-title"
     >
-      <div className="checkpoint-course" aria-hidden="true" />
-      <div className="checkpoint-light-wash" aria-hidden="true" />
-      <div className="checkpoint-route-lines" aria-hidden="true">
-        <i />
-        <i />
-      </div>
-
-      <div className="checkpoint-gantry">
-        <div className="checkpoint-beam" aria-hidden="true">
-          <span>ABOUT</span>
-          <span>01</span>
+      <div className="checkpoint-scene-hold">
+        <div className="checkpoint-course" aria-hidden="true" />
+        <div className="checkpoint-light-wash" aria-hidden="true" />
+        <div className="checkpoint-route-lines" aria-hidden="true">
+          <i />
+          <i />
         </div>
-        <article className="checkpoint-sign">
-          <p className="checkpoint-label">APPLICATION MOTIVATION · NEXON</p>
-          <h2 id="why-nexon-title">WHY NEXON?</h2>
-          <div className="checkpoint-copy">
-            <p>
-              다양한 장르의 게임을 직접 경험하며{
-              " "}
-              플레이어가 서비스를 오래 즐길 수 있게 만드는 운영의 역할에 관심을 갖게 되었습니다.{
-              " "}
-              다양한 게임과 서비스를 꾸준히 운영해온 넥슨에서{
-              " "}
-              유저 경험을 가까이에서 이해하고 운영 실무를 배우고 싶습니다.
-            </p>
+
+        <div className="checkpoint-gantry">
+          <div className="checkpoint-beam" aria-hidden="true">
+            <span>ABOUT</span>
+            <span>01</span>
           </div>
-          <div className="checkpoint-progress" aria-hidden="true">
-            <span />
-          </div>
-        </article>
-        <div className="checkpoint-post checkpoint-post-left" aria-hidden="true" />
-        <div className="checkpoint-post checkpoint-post-right" aria-hidden="true" />
+          <article className="checkpoint-sign">
+            <p className="checkpoint-label">APPLICATION MOTIVATION · NEXON</p>
+            <h2 id="why-nexon-title">WHY NEXON?</h2>
+            <div className="checkpoint-copy">
+              <p>
+                다양한 장르의 게임을 직접 경험하며{" "}
+                플레이어가 서비스를 오래 즐길 수 있게 만드는 운영의 역할에 관심을 갖게 되었습니다.{" "}
+                다양한 게임과 서비스를 꾸준히 운영해온 넥슨에서{" "}
+                유저 경험을 가까이에서 이해하고 운영 실무를 배우고 싶습니다.
+              </p>
+            </div>
+            <div className="checkpoint-progress" aria-hidden="true"><span /></div>
+          </article>
+          <div className="checkpoint-post checkpoint-post-left" aria-hidden="true" />
+          <div className="checkpoint-post checkpoint-post-right" aria-hidden="true" />
+        </div>
       </div>
     </section>
   );
@@ -556,15 +553,16 @@ export function ContactBackground() {
       data-scroll-scene
       aria-labelledby="contact-title"
     >
-      <div className="contact-image" aria-hidden="true" />
-      <div className="contact-atmosphere" aria-hidden="true" />
-      <div className="contact-spotlight contact-spotlight-left" aria-hidden="true" />
-      <div className="contact-spotlight contact-spotlight-right" aria-hidden="true" />
-      <div className="contact-confetti" aria-hidden="true">
-        <i /><i /><i /><i /><i /><i /><i /><i />
-      </div>
+      <div className="contact-scene-hold">
+        <div className="contact-image" aria-hidden="true" />
+        <div className="contact-atmosphere" aria-hidden="true" />
+        <div className="contact-spotlight contact-spotlight-left" aria-hidden="true" />
+        <div className="contact-spotlight contact-spotlight-right" aria-hidden="true" />
+        <div className="contact-confetti" aria-hidden="true">
+          <i /><i /><i /><i /><i /><i /><i /><i />
+        </div>
 
-      <div className="contact-finish-shell">
+        <div className="contact-finish-shell">
         <header className="contact-finish-copy">
           <p><Trophy aria-hidden="true" /> CONTACT · GAME OPERATIONS</p>
           <h2 id="contact-title">
@@ -607,6 +605,7 @@ export function ContactBackground() {
           </a>
           <p>게임 운영직무 신입 지원자 강승혜입니다.</p>
         </aside>
+        </div>
       </div>
     </section>
   );

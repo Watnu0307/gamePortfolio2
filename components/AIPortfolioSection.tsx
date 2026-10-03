@@ -202,9 +202,10 @@ export function AIPortfolioSection() {
       data-scroll-scene
       aria-labelledby="ai-portfolio-title"
     >
-      <div className="ai-shop-orb ai-shop-orb-a" aria-hidden="true" />
-      <div className="ai-shop-orb ai-shop-orb-b" aria-hidden="true" />
-      <div className="ai-portfolio-shell">
+      <div className="ai-scene-hold">
+        <div className="ai-shop-orb ai-shop-orb-a" aria-hidden="true" />
+        <div className="ai-shop-orb ai-shop-orb-b" aria-hidden="true" />
+        <div className="ai-portfolio-shell">
         <header className="ai-portfolio-header">
           <div>
             <p><Sparkles aria-hidden="true" /> AI PORTFOLIO</p>
@@ -280,10 +281,11 @@ export function AIPortfolioSection() {
           </div>
         </div>
 
-        <div className="ai-rail-footer">
-          <span>좌우로 이동해 작업물 보기</span>
-          <div className="ai-scroll-progress" aria-hidden="true"><i style={{ left: `${progress.left}%`, width: `${progress.width}%` }} /></div>
-          <span>{String(projects.length).padStart(2, "0")} PROJECTS</span>
+          <div className="ai-rail-footer">
+            <span>좌우로 이동해 작업물 보기</span>
+            <div className="ai-scroll-progress" aria-hidden="true"><i style={{ left: `${progress.left}%`, width: `${progress.width}%` }} /></div>
+            <span>{String(projects.length).padStart(2, "0")} PROJECTS</span>
+          </div>
         </div>
       </div>
 

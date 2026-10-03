@@ -98,20 +98,22 @@ export function QnASection() {
       data-scroll-scene
       aria-labelledby="qna-title"
     >
-      <div className="qna-track-mark" aria-hidden="true" />
-      <div className="qna-checkers" aria-hidden="true" />
-      <div className="qna-shell">
-        <QnAHeader />
+      <div className="qna-scene-hold">
+        <div className="qna-track-mark" aria-hidden="true" />
+        <div className="qna-checkers" aria-hidden="true" />
+        <div className="qna-shell">
+          <QnAHeader />
 
-        <Accordion
-          type="multiple"
-          defaultValue={qnaData.map((item) => item.id)}
-          className="qna-list"
-        >
-          {qnaData.map((item, index) => (
-            <QnACard key={item.id} item={item} index={index} />
-          ))}
-        </Accordion>
+          <Accordion
+            type="multiple"
+            defaultValue={qnaData.map((item) => item.id)}
+            className="qna-list"
+          >
+            {qnaData.map((item, index) => (
+              <QnACard key={item.id} item={item} index={index} />
+            ))}
+          </Accordion>
+        </div>
       </div>
     </section>
   );
