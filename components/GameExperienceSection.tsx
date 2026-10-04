@@ -13,7 +13,7 @@ const gameExperience: GameExperience[] = [
   { title: "에픽세븐", genre: "턴제 RPG", platform: "MOBILE", period: "2025.10 – 2026.02", hours: 67.5 },
   { title: "승리의 여신: 니케", genre: "FPS / TPS", platform: "MOBILE", period: "2023.05 – 2023.12" },
   { title: "로드오브다이스", genre: "보드 액션 RPG", platform: "MOBILE", period: "2017.03 – 2019.02" },
-  { title: "제우스: 오만의 신", genre: "RPG", platform: "MOBILE", period: "플레이 경험 기록" },
+  { title: "제우스: 오만의 신", genre: "RPG", platform: "MOBILE", period: "2026.09 - 플레이중" },
 ];
 
 const otherExperience = [

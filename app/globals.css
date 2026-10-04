@@ -797,7 +797,7 @@ body {
 .game-experience-header > span { display: block; max-width: none; margin-top: 1.05rem; color: #5f6d82; font-size: clamp(.92rem,1.05vw,1.05rem); line-height: 1.7; white-space: nowrap; }
 
 .experience-stats { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: .85rem; margin: clamp(2.25rem,3.5vw,3.5rem) auto 0; width: min(100%,1060px); }
-.experience-stats article { min-width: 0; padding: clamp(1.15rem,1.7vw,1.55rem); border: 1px solid #dce7f5; border-radius: 20px; background: rgba(255,255,255,.92); box-shadow: 0 13px 32px rgba(36,75,120,.07); text-align: center; opacity: var(--section-reveal); transform: translateY(calc((1 - var(--section-reveal)) * (18px + var(--item-index) * 3px))); transition: border-color .25s ease,box-shadow .25s ease,transform .25s ease; }
+.experience-stats article { display: grid; min-width: 0; min-height: 108px; place-content: center; padding: clamp(1.15rem,1.7vw,1.55rem); border: 1px solid #dce7f5; border-radius: 20px; background: rgba(255,255,255,.92); box-shadow: 0 13px 32px rgba(36,75,120,.07); text-align: center; opacity: var(--section-reveal); transform: translateY(calc((1 - var(--section-reveal)) * (18px + var(--item-index) * 3px))); transition: border-color .25s ease,box-shadow .25s ease,transform .25s ease; }
 .experience-stats article:hover { border-color: #1278e8; box-shadow: 0 20px 48px rgba(18,120,232,.12); transform: translateY(-4px); }
 .experience-stats strong { display: block; color: #1278e8; font-family: var(--font-title); font-size: clamp(2rem,2.8vw,3.15rem); font-weight: 700; letter-spacing: -.06em; line-height: 1; }
 .experience-stats strong.is-compact { font-size: clamp(1.05rem,1.4vw,1.5rem); letter-spacing: -.035em; line-height: 1.15; }
