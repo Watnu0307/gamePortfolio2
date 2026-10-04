@@ -37,6 +37,10 @@ const localBindingConfig = {
 };
 
 export default defineConfig(async ({ command }) => {
+  const isNetlifyBuild =
+    command === "build" &&
+    (process.env.NETLIFY === "true" || process.env.NITRO_PRESET === "netlify");
+
   // Use Miniflare's local Request.cf placeholder unless fetching is requested.
   process.env.CLOUDFLARE_CF_FETCH_ENABLED ??= "false";
   process.env.WRANGLER_SEND_METRICS ??= "false";
@@ -48,23 +52,11 @@ export default defineConfig(async ({ command }) => {
   process.env.WRANGLER_REGISTRY_PATH ??= ".wrangler/dev-registry";
   process.env.MINIFLARE_REGISTRY_PATH ??= ".wrangler/registry";
 
-  // Wrangler snapshots its log path while the Cloudflare plugin is imported.
-  const { cloudflare } = await import("@cloudflare/vite-plugin");
-
-  return {
-    server: {
-      ...(managedLinux
-        ? { host: "0.0.0.0", allowedHosts: ["terminal.local"] }
-        : {}),
-      ...(isCodexSeatbeltSandbox
-        ? { watch: { useFsEvents: false, usePolling: true } }
-        : {}),
-    },
-    plugins: [
-      vinext(),
-      sites({ mockAuth: !managedLinux }),
-      connectorPreview(),
-      cloudflare({
+  // Netlify builds use Nitro. Cloudflare remains the default for local
+  // development and the existing Sites deployment workflow.
+  const deploymentPlugin = isNetlifyBuild
+    ? (await import("nitro/vite")).nitro({ preset: "netlify" })
+    : (await import("@cloudflare/vite-plugin")).cloudflare({
         viteEnvironment: { name: "rsc", childEnvironments: ["ssr"] },
         inspectorPort: false,
         config: {
@@ -94,7 +86,23 @@ export default defineConfig(async ({ command }) => {
               ],
             }
           : {}),
-      }),
+      });
+
+  return {
+    server: {
+      ...(managedLinux
+        ? { host: "0.0.0.0", allowedHosts: ["terminal.local"] }
+        : {}),
+      ...(isCodexSeatbeltSandbox
+        ? { watch: { useFsEvents: false, usePolling: true } }
+        : {}),
+    },
+    plugins: [
+      vinext(),
+      ...(!isNetlifyBuild
+        ? [sites({ mockAuth: !managedLinux }), connectorPreview()]
+        : []),
+      deploymentPlugin,
     ],
   };
 });
