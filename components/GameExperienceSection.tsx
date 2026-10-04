@@ -65,7 +65,7 @@ export function GameExperienceSection() {
         </div>
 
         <div className="experience-block-heading">
-          <span>SELECTED PLAY HISTORY</span>
+          <span>FEATURED PLAY HISTORY</span>
           <h3>대표 플레이 이력</h3>
         </div>
         <div className="experience-game-grid">

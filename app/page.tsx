@@ -9,11 +9,13 @@ import { QnASection } from "@/components/QnASection";
 import { GameExperienceSection } from "@/components/GameExperienceSection";
 import { SectionTransition } from "@/components/SectionTransition";
 import { SectionNav } from "@/components/SectionNav";
+import { PageControls } from "@/components/PageControls";
 
 export default function Home() {
   return (
     <main className="racing-world" aria-label="강승혜 게임 운영직무 포트폴리오">
       <SectionNav />
+      <PageControls />
       <LandingBackground />
       <SectionTransition variant="landing-bridge" label="지원 동기 섹션으로 이동" />
       <NexonBridgeSection />

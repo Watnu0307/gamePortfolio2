@@ -245,10 +245,8 @@ export function NexonBridgeSection() {
 
         <div className="checkpoint-gantry">
           <div className="checkpoint-beam" aria-hidden="true">
-            <span>지원 동기</span>
           </div>
           <article className="checkpoint-sign">
-            <p className="checkpoint-label">게임 운영 직무 지원 동기</p>
             <h2 id="why-nexon-title">왜 넥슨인가요?</h2>
             <div className="checkpoint-copy">
               <p>
@@ -355,7 +353,7 @@ export function PortfolioBackground() {
           <aside className="shop-character-entry" aria-label="지원자 정보">
             <header className="shop-player-info">
               <span className="shop-player-status">
-                <i aria-hidden="true" /> AVAILABLE FOR GAME OPERATIONS
+                <i aria-hidden="true" /> 현재 접속 중
               </span>
               <h3>강승혜</h3>
               <p>게임 운영직무 신입 지원자</p>

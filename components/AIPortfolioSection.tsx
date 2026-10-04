@@ -210,7 +210,7 @@ export function AIPortfolioSection() {
           <div>
             <p><Sparkles aria-hidden="true" /> AI PORTFOLIO</p>
             <h2 id="ai-portfolio-title">AI를 활용한 작업물</h2>
-            <span>AI를 활용해 기획, 이미지 제작, 문서 정리, 웹 구현 과정에서 작업 효율과 결과물을 개선한 사례를 정리했습니다.</span>
+            <span>AI를 활용해 기획, 이미지 제작, 문서 정리, 웹 구현 과정에서 작업 효율을 높이고 완성한 작업물을 정리했습니다.</span>
           </div>
           <div className="ai-shop-badge" aria-hidden="true">
             <img src="/images/ai-ufo.png" alt="" />

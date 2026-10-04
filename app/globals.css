@@ -73,12 +73,12 @@ body {
   top: 1rem;
   left: 50%;
   display: flex;
-  max-width: calc(100vw - 2rem);
+  width: min(900px,calc(100vw - 2rem));
   align-items: center;
   justify-content: center;
   gap: .2rem;
   padding: .38rem;
-  overflow-x: auto;
+  overflow-x: visible;
   border: 1px solid rgba(18,120,232,.16);
   border-radius: 999px;
   background: rgba(255,255,255,.88);
@@ -87,6 +87,15 @@ body {
   transform: translateX(-50%);
   scrollbar-width: none;
 }
+
+.page-controls { position: fixed; z-index: 110; right: 1.25rem; bottom: 1.25rem; display: grid; justify-items: end; gap: .7rem; }
+.page-controls button { border: 1px solid rgba(18,120,232,.2); color: #16466f; background: rgba(255,255,255,.92); box-shadow: 0 12px 30px rgba(19,56,99,.18); backdrop-filter: blur(16px); cursor: pointer; transition: transform .2s ease,background-color .2s ease,color .2s ease,opacity .2s ease; }
+.page-controls button:hover { color: #fff; background: #1278e8; transform: translateY(-2px); }
+.theme-toggle { display: flex; align-items: center; gap: .5rem; min-height: 42px; padding: .6rem .85rem; border-radius: 999px; font-family: var(--font-title); font-size: .72rem; font-weight: 700; }
+.theme-toggle svg { width: 1rem; height: 1rem; }
+.scroll-top-button { display: grid; width: 46px; height: 46px; place-items: center; border-radius: 50%; opacity: 0; pointer-events: none; transform: translateY(8px); }
+.scroll-top-button.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.scroll-top-button svg { width: 1.25rem; height: 1.25rem; }
 
 .section-nav::-webkit-scrollbar { display: none; }
 .section-nav a {
@@ -822,7 +831,8 @@ body {
 
 .experience-lower-grid { display: block; }
 .experience-other-list { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .9rem; }
-.experience-other-list article { min-height: 185px; padding: 1.3rem 1.35rem; border: 1px solid #dce7f5; border-radius: 20px; background: #fff; }
+.experience-other-list article { min-height: 185px; padding: 1.3rem 1.35rem; border: 1px solid #dce7f5; border-radius: 20px; background: #fff; box-shadow: 0 12px 30px rgba(36,75,120,.05); transition: transform .25s ease,border-color .25s ease,box-shadow .25s ease; }
+.experience-other-list article:hover { border-color: #1278e8; box-shadow: 0 20px 44px rgba(18,120,232,.14); transform: translateY(-6px); }
 .experience-other-list header { display: grid; gap: .45rem; }
 .experience-other-list strong { color: #1278e8; font-family: var(--font-title); font-size: .8rem; letter-spacing: .09em; }
 .experience-other-list header span { color: #69798e; font-size: .8rem; }
@@ -2775,4 +2785,57 @@ textarea {
   .landing-background-parallax,.landing-image,.landing-light,.character-parallax-wrapper,.character-floating-wrapper,.scroll-arrow,.checkpoint-course,.checkpoint-gantry,.soft-course,.qna-route,.qna-track-mark,.qna-shell,.qna-item-orbit,.qna-item-frame img,.garage-wall,.garage-bays,.garage-floor,.pit-line,.shop-character-entry,.shop-toolbar-entry,.shop-grid-entry,.boost-grid,.boost-glow,.speed-lines,.contact-image { transform: none !important; animation: none !important; }
   .checkpoint-course,.checkpoint-gantry,.qna-shell,.garage-wall,.garage-bays,.garage-floor,.pit-line,.shop-character-entry,.shop-toolbar-entry,.shop-grid-entry { opacity: 1 !important; filter: none !important; }
   .landing-track-wash { backdrop-filter: none; }
+}
+
+/* User-controlled light/dark appearance */
+html[data-theme="dark"] { color-scheme: dark; background: #07111f; }
+html[data-theme="dark"] body,
+html[data-theme="dark"] .racing-world { color: #dbe9fa; background: #07111f; }
+html[data-theme="dark"] .section-nav,
+html[data-theme="dark"] .page-controls button { border-color: rgba(102,187,255,.24); color: #c8dbef; background: rgba(8,24,42,.9); box-shadow: 0 14px 36px rgba(0,0,0,.34); }
+html[data-theme="dark"] .section-nav a { color: #b8cce1; }
+html[data-theme="dark"] .section-nav a:hover { color: #fff; background: rgba(18,120,232,.34); }
+html[data-theme="dark"] .section-nav a.is-active,
+html[data-theme="dark"] .page-controls button:hover { color: #fff; background: #1688f5; }
+html[data-theme="dark"] .landing-vignette { background: linear-gradient(90deg,rgba(2,13,28,.68),rgba(2,13,28,.16) 58%,rgba(2,13,28,.34)); }
+html[data-theme="dark"] .checkpoint-bridge,
+html[data-theme="dark"] .qna-section,
+html[data-theme="dark"] .portfolio-background,
+html[data-theme="dark"] .portfolio-sticky,
+html[data-theme="dark"] .ai-portfolio-section,
+html[data-theme="dark"] .contact-background,
+html[data-theme="dark"] .section-transition { background: #07111f !important; }
+html[data-theme="dark"] .game-experience-section { background: linear-gradient(180deg,#07111f 0%,#0c1b2d 15%,#102640 50%,#0b1b2e 85%,#07111f 100%); }
+html[data-theme="dark"] .checkpoint-sign,
+html[data-theme="dark"] .qna-item,
+html[data-theme="dark"] .experience-stats article,
+html[data-theme="dark"] .experience-game-card,
+html[data-theme="dark"] .experience-other-list article,
+html[data-theme="dark"] .shop-character-panel,
+html[data-theme="dark"] .shop-card,
+html[data-theme="dark"] .ai-card,
+html[data-theme="dark"] .contact-result-card { border-color: #294664; color: #dbe9fa; background: rgba(12,31,51,.94); box-shadow: 0 18px 42px rgba(0,0,0,.28); }
+html[data-theme="dark"] .game-experience-header h2,
+html[data-theme="dark"] .experience-block-heading h3,
+html[data-theme="dark"] .experience-game-card h4,
+html[data-theme="dark"] .qna-header h2,
+html[data-theme="dark"] .qna-question,
+html[data-theme="dark"] .shop-player-info h3,
+html[data-theme="dark"] .shop-toolbar-entry h2,
+html[data-theme="dark"] .ai-portfolio-header h2 { color: #f4f9ff; }
+html[data-theme="dark"] .game-experience-header > span,
+html[data-theme="dark"] .experience-stats span,
+html[data-theme="dark"] .experience-game-card dd,
+html[data-theme="dark"] .experience-other-list header span,
+html[data-theme="dark"] .experience-other-list p,
+html[data-theme="dark"] .qna-description,
+html[data-theme="dark"] .qna-answer p,
+html[data-theme="dark"] .ai-portfolio-header > div > span { color: #b8cce1; }
+
+@media (max-width: 760px) {
+  .section-nav { width: calc(100vw - 1rem); justify-content: flex-start; overflow-x: auto; }
+  .section-nav a { padding-inline: .72rem; }
+  .page-controls { right: .75rem; bottom: .75rem; }
+  .theme-toggle span { display: none; }
+  .theme-toggle { width: 44px; padding: 0; justify-content: center; }
 }

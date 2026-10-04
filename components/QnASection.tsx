@@ -51,7 +51,7 @@ export function QnAHeader() {
         </p>
         <h2 id="qna-title">저를 소개합니다</h2>
         <p className="qna-description">
-          네 가지 질문에 답하며 저의 경험과 생각을 전합니다.
+          Q&amp;A 질문에 답하며 저의 경험과 생각을 전합니다.
         </p>
       </div>
 
